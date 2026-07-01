@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulta de Licenciamento Ambiental · Distrito Federal</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --verde-cerrado: #1B4332;
+    --verde-medio: #2D6A4F;
+    --verde-claro: #52B788;
+    --bege: #F5F0E8;
+    --bege-escuro: #EAE3D6;
+    --laranja: #D4663A;
+    --azul: #2563EB;
+    --cinza: #6B7280;
+    --cinza-claro: #F3F4F6;
+    --texto: #1C1917;
+    --badge-dla: #166534;
+    --badge-dla-bg: #DCFCE7;
+    --badge-las: #1D4ED8;
+    --badge-las-bg: #DBEAFE;
+    --badge-lau: #92400E;
+    --badge-lau-bg: #FEF3C7;
+    --badge-lac: #9A3412;
+    --badge-lac-bg: #FFEDD5;
+    --badge-parecer: #374151;
+    --badge-parecer-bg: #F3F4F6;
+    --badge-dcaa: #5B21B6;
+    --badge-dcaa-bg: #EDE9FE;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bege);
+    color: var(--texto);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--verde-cerrado);
+    padding: 0 2rem;
+    border-bottom: 3px solid var(--verde-claro);
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+  }
+  .logo-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+  }
+  .header-text h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .header-text p {
+    font-size: 0.78rem;
+    color: var(--verde-claro);
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--verde-cerrado);
+    padding: 2.5rem 2rem 3.5rem;
+    text-align: center;
+  }
+  .hero h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.25;
+    max-width: 600px;
+    margin: 0 auto 0.6rem;
+  }
+  .hero h2 em {
+    color: var(--verde-claro);
+    font-style: italic;
+  }
+  .hero p {
+    color: #A7C4B5;
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  /* SEARCH BOX */
+  .search-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 640px;
+    margin: 0 auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  }
+  .search-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 0.55rem 0.5rem;
+    border: 1.5px solid var(--bege-escuro);
+    border-radius: 8px;
+    background: var(--bege);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--cinza);
+    transition: all 0.15s;
+  }
+  .tab-btn.active {
+    background: var(--verde-cerrado);
+    color: #fff;
+    border-color: var(--verde-cerrado);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .input-row {
+    display: flex;
+    gap: 0.6rem;
+  }
+  .input-row input, .input-row select {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--bege-escuro);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    background: var(--bege);
+    color: var(--texto);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .input-row input:focus, .input-row select:focus {
+    border-color: var(--verde-claro);
+  }
+  .btn-buscar {
+    padding: 0.75rem 1.4rem;
+    background: var(--verde-cerrado);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .btn-buscar:hover { background: var(--verde-medio); }
+  .search-hint {
+    font-size: 0.78rem;
+    color: var(--cinza);
+    margin-top: 0.6rem;
+    text-align: left;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  /* FILTERS BAR */
+  .filters-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+  .filters-bar span {
+    font-size: 0.82rem;
+    color: var(--cinza);
+    font-weight: 500;
+    margin-right: 0.2rem;
+  }
+  .filter-chip {
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    border: 1.5px solid var(--bege-escuro);
+    background: #fff;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--cinza);
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .filter-chip.active { background: var(--verde-cerrado); color: #fff; border-color: var(--verde-cerrado); }
+  .filter-chip.dla.active   { background: var(--badge-dla);    border-color: var(--badge-dla);    color: #fff; }
+  .filter-chip.las.active   { background: var(--badge-las);    border-color: var(--badge-las);    color: #fff; }
+  .filter-chip.lau.active   { background: #B45309;             border-color: #B45309;             color: #fff; }
+  .filter-chip.lac.active   { background: var(--badge-lac);    border-color: var(--badge-lac);    color: #fff; }
+  .filter-chip.dcaa.active  { background: var(--badge-dcaa);   border-color: var(--badge-dcaa);   color: #fff; }
+  .filter-chip.parecer.active { background: var(--badge-parecer); border-color: var(--badge-parecer); color: #fff; }
+
+  /* RESULTS */
+  .results-header {
+    font-size: 0.85rem;
+    color: var(--cinza);
+    margin-bottom: 1rem;
+  }
+  .results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  /* CARD */
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1.5px solid var(--bege-escuro);
+    padding: 1.25rem 1.4rem;
+    transition: box-shadow 0.15s;
+    cursor: pointer;
+  }
+  .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+  .card-title {
+    font-weight: 600;
+    font-size: 0.97rem;
+    line-height: 1.4;
+    flex: 1;
+  }
+  .card-categoria {
+    font-size: 0.75rem;
+    color: var(--cinza);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge.dla    { background: var(--badge-dla-bg);    color: var(--badge-dla); }
+  .badge.las    { background: var(--badge-las-bg);    color: var(--badge-las); }
+  .badge.lau    { background: var(--badge-lau-bg);    color: var(--badge-lau); }
+  .badge.lac    { background: var(--badge-lac-bg);    color: var(--badge-lac); }
+  .badge.dcaa   { background: var(--badge-dcaa-bg);   color: var(--badge-dcaa); }
+  .badge.parecer{ background: var(--badge-parecer-bg);color: var(--badge-parecer); }
+
+  /* RÉGUA DE PORTE */
+  .porte-regua {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0.7rem 0 0.5rem;
+    font-size: 0.72rem;
+  }
+  .porte-step {
+    flex: 1;
+    text-align: center;
+    padding: 0.3rem 0.2rem;
+    background: var(--bege);
+    color: var(--cinza);
+    border: 1px solid var(--bege-escuro);
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+  .porte-step:first-child { border-radius: 6px 0 0 6px; }
+  .porte-step:last-child  { border-radius: 0 6px 6px 0; }
+  .porte-step.ativo {
+    background: var(--verde-cerrado);
+    color: #fff;
+    border-color: var(--verde-cerrado);
+    font-weight: 600;
+    z-index: 1;
+  }
+  .porte-step.ativo.dla    { background: var(--badge-dla);  border-color: var(--badge-dla); }
+  .porte-step.ativo.las    { background: var(--badge-las);  border-color: var(--badge-las); }
+  .porte-step.ativo.lau    { background: #B45309;           border-color: #B45309; }
+  .porte-step.ativo.lac    { background: var(--badge-lac);  border-color: var(--badge-lac); }
+  .porte-step.ativo.dcaa   { background: var(--badge-dcaa); border-color: var(--badge-dcaa); }
+
+  .card-details {
+    font-size: 0.83rem;
+    color: #374151;
+    line-height: 1.6;
+    margin-top: 0.4rem;
+  }
+  .card-norma {
+    font-size: 0.75rem;
+    color: var(--cinza);
+    margin-top: 0.5rem;
+  }
+  .card-norma a {
+    color: var(--verde-medio);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .card-norma a:hover { text-decoration: underline; }
+  .card-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    background: #FFF7ED;
+    border: 1px solid #FED7AA;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    color: #92400E;
+    line-height: 1.5;
+  }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--cinza);
+  }
+  .empty-state svg { margin-bottom: 1rem; opacity: 0.4; }
+  .empty-state h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--texto); }
+  .empty-state p { font-size: 0.85rem; line-height: 1.6; }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--bege-escuro);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: #374151;
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* AVISO LEGAL */
+  .aviso-legal {
+    background: #F9FAFB;
+    border: 1px solid var(--bege-escuro);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-top: 2rem;
+    font-size: 0.78rem;
+    color: var(--cinza);
+    line-height: 1.6;
+  }
+  .aviso-legal strong { color: var(--texto); }
+
+  @media (max-width: 600px) {
+    .header-inner { gap: 0.8rem; }
+    .header-text h1 { font-size: 1rem; }
+    .card-top { flex-direction: column; gap: 0.4rem; }
+    .search-tabs { flex-wrap: wrap; }
+    .tab-btn { font-size: 0.75rem; padding: 0.45rem 0.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <svg class="logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="22" fill="#2D6A4F"/>
+      <path d="M22 10c0 0-8 5-8 13 0 4.4 3.6 8 8 8s8-3.6 8-8c0-8-8-13-8-13z" fill="#52B788"/>
+      <rect x="21" y="22" width="2" height="9" rx="1" fill="#1B4332"/>
+      <path d="M22 22 l-5-4" stroke="#1B4332" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M22 22 l4-3" stroke="#1B4332" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <div class="header-text">
+      <h1>Consulta de Licenciamento Ambiental</h1>
+      <p>Distrito Federal · CONAM-DF · Brasília Ambiental</p>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <h2>Qual licença sua <em>atividade</em> precisa?</h2>
+  <p>Busque por descrição livre, nome da atividade ou código CNAE e descubra o instrumento ambiental exigido no Distrito Federal.</p>
+  <div class="search-card">
+    <div class="search-tabs">
+      <button class="tab-btn active" onclick="switchTab('descricao')">🔍 Descrição livre</button>
+      <button class="tab-btn" onclick="switchTab('cnae')">📋 Código CNAE</button>
+      <button class="tab-btn" onclick="switchTab('categoria')">📂 Categoria</button>
+    </div>
+    <div id="tab-descricao" class="tab-panel active">
+      <div class="input-row">
+        <input type="text" id="input-descricao" placeholder="Ex: fabricação de velas, oficina mecânica, extração de cascalho…" oninput="buscar()" onkeydown="if(event.key==='Enter')buscar()">
+        <button class="btn-buscar" onclick="buscar()">Buscar</button>
+      </div>
+      <p class="search-hint">Descreva a atividade com suas próprias palavras — sem precisar saber o CNAE.</p>
+    </div>
+    <div id="tab-cnae" class="tab-panel">
+      <div class="input-row">
+        <input type="text" id="input-cnae" placeholder="Ex: 20.63-1, 32.99-0, 08.10-0…" oninput="buscar()" onkeydown="if(event.key==='Enter')buscar()">
+        <button class="btn-buscar" onclick="buscar()">Buscar</button>
+      </div>
+      <p class="search-hint">Digite o código CNAE completo ou parcial.</p>
+    </div>
+    <div id="tab-categoria" class="tab-panel">
+      <div class="input-row">
+        <select id="input-categoria" onchange="buscar()">
+          <option value="">— Selecione uma categoria —</option>
+        </select>
+      </div>
+      <p class="search-hint">Filtre todas as atividades de uma categoria industrial.</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="filters-bar" id="filters-bar" style="display:none">
+    <span>Filtrar por tipo:</span>
+    <button class="filter-chip active" onclick="setFiltro('todos')">Todos</button>
+    <button class="filter-chip dla"    onclick="setFiltro('DLA')">DLA — Dispensado</button>
+    <button class="filter-chip dcaa"   onclick="setFiltro('DCAA')">DCAA — Agropecuário</button>
+    <button class="filter-chip las"    onclick="setFiltro('LAS')">LAS — Simplificado</button>
+    <button class="filter-chip lau"    onclick="setFiltro('LAU')">LAU — Único</button>
+    <button class="filter-chip lac"    onclick="setFiltro('LAC')">LAC — Adesão e Compromisso</button>
+    <button class="filter-chip parecer" onclick="setFiltro('PARECER')">Parecer Técnico</button>
+  </div>
+  <div class="results-header" id="results-header"></div>
+  <div class="results-grid" id="results-grid">
+    <div class="empty-state">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="22" cy="22" r="14" stroke="#9CA3AF" stroke-width="2.5"/><path d="M32 32l8 8" stroke="#9CA3AF" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <h3>Pesquise uma atividade</h3>
+      <p>Digite palavras-chave, código CNAE ou selecione uma categoria para consultar o enquadramento ambiental no DF.</p>
+    </div>
+  </div>
+
+  <div class="legend" id="legend" style="display:none">
+    <div class="legend-item"><div class="legend-dot" style="background:#166534"></div> DLA — Dispensado de licenciamento</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#5B21B6"></div> DCAA — Declaração agropecuária</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1D4ED8"></div> LAS — Licença Simplificada</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#B45309"></div> LAU — Licença Única</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#9A3412"></div> LAC — Licença por Adesão e Compromisso</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#374151"></div> Parecer Técnico do Brasília Ambiental</div>
+  </div>
+
+  <div class="aviso-legal">
+    <strong>⚠️ Aviso legal:</strong> Esta consulta tem caráter <strong>orientativo</strong>. O enquadramento definitivo depende da localização do empreendimento (APP, UC, ZEE-DF), do porte real e de análise técnica do <strong>Brasília Ambiental / IBRAM</strong>. A dispensa de licenciamento não dispensa outras licenças, outorgas ou o Plano de Gerenciamento de Resíduos Sólidos (PGRS). Normas de referência: Res. CONAM/DF nº 02/2023 (LAC), 03/2023 (LAU), 10/2017 (DLA), 11/2017 (DCAA), 01/2018 (LAS) e CONAMA 237/1997.
+  </div>
+</main>
+
+<script>
+// ============================================================
+// BASE DE DADOS — atividades mapeadas das resoluções CONAM-DF
+// ============================================================
+const atividades = [
+  // DLA — Res. 10/2017
+  { id:1,  tipo:'DLA',    cnae:'',          categoria:'Comércio e Serviços',      titulo:'Bares, panificadoras, açougues, restaurantes e casas noturnas', porte:'Qualquer porte', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 9', palavras:'bar restaurante panificadora açougue casa noturna lanchonete padaria boteco' },
+  { id:2,  tipo:'DLA',    cnae:'',          categoria:'Comércio e Serviços',      titulo:'Oficina mecânica, manutenção e reparo de veículos, lubrificação', porte:'Qualquer porte', porteDesc:'Exige Sistema de Drenagem Oleosa (SDO)', norma:'Res. CONAM/DF nº 10/2017, item 10', palavras:'oficina mecânica veículo automóvel carro reparo lubrificação manutenção funilaria pintura automotiva' },
+  { id:3,  tipo:'DLA',    cnae:'',          categoria:'Comércio e Serviços',      titulo:'Lava-jato para automóveis de passeio, utilitários, caminhões e ônibus', porte:'Qualquer porte', porteDesc:'Exige Sistema de Drenagem Oleosa (SDO)', norma:'Res. CONAM/DF nº 10/2017, item 11', palavras:'lava jato lavagem veículos carro caminhão ônibus higienização automotiva' },
+  { id:4,  tipo:'DLA',    cnae:'20.63-1',   categoria:'Indústria de Cosméticos, Perfumaria e Velas', titulo:'Fabricação de cosméticos, produtos de perfumaria e higiene pessoal (sem efluentes líquidos)', porte:'Área útil ≤ 2.000 m²', porteDesc:'Sem geração de efluentes líquidos da produção. Para área > 2.000 m² ou com efluentes → LAS ou LAU.', norma:'Res. CONAM/DF nº 10/2017, item 22', palavras:'cosmético perfumaria higiene pessoal creme loção shampoo condicionador maquiagem perfume sabonete artesanal beleza' },
+  { id:5,  tipo:'DLA',    cnae:'32.99-0-06',categoria:'Indústria de Cosméticos, Perfumaria e Velas', titulo:'Fabricação de velas (inclusive decorativas)', porte:'Área útil ≤ 1.000 m²', porteDesc:'Para área > 1.000 m² → LAS. Para área > 5.000 m² → Parecer Técnico.', norma:'Res. CONAM/DF nº 10/2017, item 23', palavras:'vela velas decorativa aromática artesanal cera parafina pavio luminária' },
+  { id:6,  tipo:'DLA',    cnae:'',          categoria:'Indústria de Alimentos',   titulo:'Fabricação de panificados em geral', porte:'Área útil ≤ 500 m²', porteDesc:'Para área entre 501 e 2.500 m² → LAS.', norma:'Res. CONAM/DF nº 10/2017, item 35', palavras:'padaria panificadora pão bolo biscoito confeitaria doce pastel salgado' },
+  { id:7,  tipo:'DLA',    cnae:'',          categoria:'Indústria de Alimentos',   titulo:'Fabricação de balas, caramelos, bombons, chocolates e gomas de mascar (área urbana)', porte:'Área útil ≤ 1.000 m²', porteDesc:'Para área entre 1.001 e 5.000 m² → LAS.', norma:'Res. CONAM/DF nº 10/2017, item 33', palavras:'bala caramelo bombom chocolate goma mascar doce confeitaria confecção doces' },
+  { id:8,  tipo:'DLA',    cnae:'',          categoria:'Indústria de Vestuário',   titulo:'Fabricação de artigos do vestuário, acessórios, calçados e componentes para calçados', porte:'Qualquer porte', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 55', palavras:'vestuário roupa calçado sapato acessório moda costura confecção têxtil malha bordado artesanato' },
+  { id:9,  tipo:'DLA',    cnae:'',          categoria:'Indústria de Fertilizantes',titulo:'Fabricação de fertilizante por mistura de compostos orgânicos ou minerais', porte:'Área útil ≤ 5.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 18', palavras:'fertilizante adubo composto orgânico mineral mistura agricultura' },
+  { id:10, tipo:'DLA',    cnae:'',          categoria:'Indústria de Borracha',    titulo:'Fabricação de outros artefatos de borracha', porte:'Área útil ≤ 5.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 21', palavras:'borracha artefato vedação peça borracharia' },
+  { id:11, tipo:'DLA',    cnae:'',          categoria:'Construção Civil',         titulo:'Edificações verticais e horizontais em terreno urbano consolidado com infraestrutura', porte:'Qualquer porte', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 14', palavras:'construção edificação prédio casa imóvel residencial comercial reforma ampliação obra civil urbana' },
+  { id:12, tipo:'DLA',    cnae:'',          categoria:'Geração de Energia',       titulo:'Produção de energia solar (em áreas sem vegetação nativa ou em edifícios)', porte:'Qualquer porte', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 17', palavras:'energia solar fotovoltaico painel solar placa solar geração distribuída' },
+  { id:13, tipo:'DLA',    cnae:'',          categoria:'Tecnologia da Informação', titulo:'Desenvolvimento de software, consultoria e reparação em equipamentos de TI', porte:'Qualquer porte', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 120', palavras:'software tecnologia informação TI startup programação sistema informática consultoria dados' },
+  { id:14, tipo:'DLA',    cnae:'',          categoria:'Telecomunicações',         titulo:'Estação Rádio Base (ERB)', porte:'Qualquer porte', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 121', palavras:'ERB estação rádio base antena telecomunicação torre sinal celular' },
+  { id:15, tipo:'DLA',    cnae:'',          categoria:'Transporte',               titulo:'Transporte rodoviário de cargas em geral (exceto perigosas)', porte:'Qualquer porte', porteDesc:'O transporte de cargas PERIGOSAS NÃO é dispensado — exige LAC.', norma:'Res. CONAM/DF nº 10/2017, item 123', palavras:'transporte carga rodoviário frete logística caminhão carreteiro mudança entrega' },
+  { id:16, tipo:'DLA',    cnae:'',          categoria:'Lavanderia',               titulo:'Serviços de lavanderia (exceto com percloretileno)', porte:'Qualquer porte', porteDesc:'Lavanderia com percloretileno → LAS, qualquer porte.', norma:'Res. CONAM/DF nº 10/2017, item 76', palavras:'lavanderia lavagem roupa higienização têxtil rouparia' },
+  { id:17, tipo:'DLA',    cnae:'',          categoria:'Indústria Metalúrgica',    titulo:'Metalurgia — corte, dobra de material metálico e confecção de artefatos (sem galvanoplastia)', porte:'Área útil ≤ 5.000 m²', porteDesc:'Para área ≥ 5.001 m² → LAS.', norma:'Res. CONAM/DF nº 10/2017, item 64', palavras:'metalurgia metal artefato corte dobra serralheria ferragem soldagem solda estrutura metálica' },
+  { id:18, tipo:'DLA',    cnae:'',          categoria:'Indústria de Mobiliário',  titulo:'Fabricação de móveis de madeira sem uso de produto florestal primário', porte:'Área útil ≤ 5.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 47', palavras:'móvel mobiliário marcenaria madeira carpintaria estante armário mesa cadeira' },
+  { id:19, tipo:'DLA',    cnae:'',          categoria:'Reciclagem',               titulo:'Reciclagem de vidros, plásticos e pneus — apenas tratamento primário (triagem, prensagem, trituração)', porte:'Área útil ≤ 5.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 6', palavras:'reciclagem recicladora vidro plástico pneu triagem seleção separação material reciclável' },
+  { id:20, tipo:'DLA',    cnae:'',          categoria:'Armazenamento',            titulo:'Armazenamento aéreo de combustíveis (SAAC) para abastecimento próprio', porte:'Capacidade total ≤ 15 m³', porteDesc:'', norma:'Res. CONAM/DF nº 10/2017, item 1', palavras:'armazenamento combustível tanque aéreo abastecimento próprio diesel gasolina SAAC' },
+
+  // DCAA — Res. 11/2017 + 02/2018
+  { id:30, tipo:'DCAA',   cnae:'10.66-0',   categoria:'Agroindústria / Ração',    titulo:'Fabricação de rações balanceadas e alimentos preparados para animais (somente mistura de matéria-prima)', porte:'Qualquer porte', porteDesc:'Se o processo envolver moagem, extrusão ou secagem → NÃO se enquadra como DCAA → LAS (Res. 01/2018, item 59). DCAA emitida pela SEAGRI-DF, válida por 5 anos.', norma:'Res. CONAM/DF nº 11/2017, Anexo 2, item 12 (alt. pela Res. 02/2018)', palavras:'ração animal alimento pet cachorro gato cavalo bovino mistura farelo milho soja pet food' },
+  { id:31, tipo:'DCAA',   cnae:'',          categoria:'Agropecuária',             titulo:'Criação extensiva de bovinos, equídeos, bubalinos, caprinos e ovinos', porte:'≤ 500 ha', porteDesc:'Para confinamento → LAU (Res. 03/2023, Anexo I).', norma:'Res. CONAM/DF nº 11/2017, Anexo 1, item 10', palavras:'criação gado bovino equino cavalo caprino ovino bubalino fazenda pecuária extensiva rural' },
+  { id:32, tipo:'DCAA',   cnae:'',          categoria:'Agricultura',              titulo:'Cultivo de espécies de interesse agrícola temporárias em áreas já estabelecidas de sequeiro', porte:'≤ 500 ha (facultativa) / 500-1.000 ha (obrigatória)', porteDesc:'', norma:'Res. CONAM/DF nº 11/2017, Anexo 1/2 + Res. 02/2018', palavras:'cultivo agricultura lavoura sequeiro grãos soja milho semente temporária plantio' },
+  { id:33, tipo:'DCAA',   cnae:'',          categoria:'Aquicultura',              titulo:'Aquicultura em espelho d\'água utilizando espécies nativas ou exóticas', porte:'Espelho d\'água ≤ 2 ha (nativas) / ≤ 10.000 m² (exóticas)', porteDesc:'Para portes maiores → LAU (Res. 03/2023, Anexo I).', norma:'Res. CONAM/DF nº 11/2017, Anexo 2, itens 1 e 2', palavras:'aquicultura piscicultura peixe tilápia tambaqui lago viveiro espelho d\'água pesca criação' },
+  { id:34, tipo:'DCAA',   cnae:'',          categoria:'Agropecuária',             titulo:'Avicultura de corte, postura de ovos e incubatório', porte:'Área útil ≤ 3.000 m²', porteDesc:'Para área > 3.000 m² → LAU (Res. 03/2023, Anexo I).', norma:'Res. CONAM/DF nº 11/2017, Anexo 2, item 11', palavras:'avicultura frango galinha ovo postura incubatório granja avícola aves' },
+
+  // LAS — Res. 01/2018
+  { id:40, tipo:'LAS',    cnae:'32.99-0-06',categoria:'Indústria de Cosméticos, Perfumaria e Velas', titulo:'Fabricação de velas (área > 1.000 m²)', porte:'Área útil > 1.000 m²', porteDesc:'Para área útil ≤ 1.000 m² → DLA. Para área > 5.000 m² → Parecer Técnico.', norma:'Res. CONAM/DF nº 01/2018, item 47', palavras:'vela velas decorativa aromática artesanal cera parafina pavio fábrica industrial' },
+  { id:41, tipo:'LAS',    cnae:'20.63-1',   categoria:'Indústria de Cosméticos, Perfumaria e Velas', titulo:'Fabricação de cosméticos, perfumaria e higiene pessoal (exceto se enquadrado em DLA)', porte:'Área útil ≤ 5.000 m²', porteDesc:'Para área > 5.000 m² ou se CNAE 20.63-1 constar no Anexo I da LAU (Res. 03/2023) → LAU prevalece.', norma:'Res. CONAM/DF nº 01/2018, item 46', palavras:'cosmético perfume higiene pessoal creme shampoo sabonete loção maquiagem beleza indústria' },
+  { id:42, tipo:'LAS',    cnae:'',          categoria:'Indústria de Cosméticos, Perfumaria e Velas', titulo:'Fabricação de saponáceos, branqueadores e desinfetantes', porte:'Área útil ≤ 1.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 01/2018, item 48', palavras:'saponáceo branqueador desinfetante limpeza produto domissanitário sabão detergente alvejante' },
+  { id:43, tipo:'LAS',    cnae:'10.66-0',   categoria:'Indústria de Alimentos / Ração', titulo:'Fabricação de rações balanceadas e alimentos para animais NÃO enquadrados como DCAA', porte:'Qualquer porte', porteDesc:'Aplica-se quando o processo envolve moagem, extrusão, secagem ou outros processos além da mistura de matéria-prima.', norma:'Res. CONAM/DF nº 01/2018, item 59', palavras:'ração animal alimento pet cachorro gato cavalo extrusão moagem fabricação fábrica' },
+  { id:44, tipo:'LAS',    cnae:'',          categoria:'Indústria de Alimentos',   titulo:'Fabricação de panificados em geral', porte:'Área útil 501 a 2.500 m²', porteDesc:'Para área ≤ 500 m² → DLA.', norma:'Res. CONAM/DF nº 01/2018, item 52', palavras:'padaria panificadora pão bolo biscoito confeitaria doce industrial' },
+  { id:45, tipo:'LAS',    cnae:'',          categoria:'Indústria de Alimentos',   titulo:'Fabricação de refrigerantes', porte:'Área útil ≤ 5.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 01/2018, item 30', palavras:'refrigerante bebida gaseificada água saborizada sucos isotônico envasamento engarrafamento' },
+  { id:46, tipo:'LAS',    cnae:'',          categoria:'Indústria de Alimentos',   titulo:'Fabricação de bebidas (artesanais / pequena escala)', porte:'60.000 L a 200.000 L/ano', porteDesc:'Para produção até 60.000 L/ano → DLA. Para produção > 200.000 L/ano → LAU (CNAE 11.11-9).', norma:'Res. CONAM/DF nº 01/2018, item 31', palavras:'cerveja artesanal bebida alcoólica fermentada destilada fábrica pequena produção vinho cachaça' },
+  { id:47, tipo:'LAS',    cnae:'',          categoria:'Indústria de Plásticos',   titulo:'Fabricação de embalagens e artefatos plásticos (moldagem de termoplástico)', porte:'Área útil ≥ 5.001 m²', porteDesc:'Para área ≤ 5.000 m² → DLA (Res. 10/2017, item 41).', norma:'Res. CONAM/DF nº 01/2018, item 65', palavras:'plástico embalagem artefato moldagem termoplástico injeção sopro extrusão polietileno' },
+  { id:48, tipo:'LAS',    cnae:'',          categoria:'Indústria Editorial e Gráfica', titulo:'Impressão em geral (jornais, livros, material gráfico, OFF SET)', porte:'Área útil ≤ 5.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 01/2018, itens 90-93', palavras:'gráfica impressão off set tipografia serigrafia plotagem material gráfico livro jornal editorial' },
+  { id:49, tipo:'LAS',    cnae:'',          categoria:'Indústria de Produtos de Minerais', titulo:'Beneficiamento de pedras — mármore, granito, ardósia', porte:'Área útil ≤ 5.000 m²', porteDesc:'Para lapidação/polimento de vidro → verificar analogia com item 71 (produtos de minerais não-metálicos).', norma:'Res. CONAM/DF nº 01/2018, item 68', palavras:'pedra mármore granito ardósia beneficiamento polimento corte lapidação marmoraria granilite' },
+  { id:50, tipo:'LAS',    cnae:'',          categoria:'Lavanderia',               titulo:'Serviços de lavanderia com uso de percloretileno ou equivalente', porte:'Qualquer porte', porteDesc:'Lavanderia sem percloretileno → DLA.', norma:'Res. CONAM/DF nº 01/2018, item 127', palavras:'lavanderia lavagem percloretileno solvente roupa limpeza a seco' },
+  { id:51, tipo:'LAS',    cnae:'',          categoria:'Atividade Funerária',      titulo:'Crematório', porte:'Área útil < 50 m²', porteDesc:'Para área ≥ 50 m² → LAU (Res. 03/2023, Anexo I, CNAE 96.03-3/02).', norma:'Res. CONAM/DF nº 01/2018, item 29', palavras:'crematório cremação funerária funeral velório sepultamento' },
+  { id:52, tipo:'LAS',    cnae:'',          categoria:'Indústria de Mobiliário',  titulo:'Fabricação de móveis de madeira sem uso de produto florestal primário', porte:'Área útil ≥ 5.001 m²', porteDesc:'Para área ≤ 5.000 m² → DLA.', norma:'Res. CONAM/DF nº 01/2018, item 77', palavras:'móvel mobiliário madeira MDF MDP compensado marcenaria industrial fábrica' },
+
+  // LAU — Res. 03/2023
+  { id:60, tipo:'LAU',    cnae:'20.63-1',   categoria:'Indústria de Cosméticos, Perfumaria e Velas', titulo:'Fabricação de cosméticos, produtos de perfumaria e de higiene pessoal', porte:'Pequeno ≤ 5.000 m² / Médio ≤ 10.000 m² / Grande > 10.000 m²', porteDesc:'Prevalece sobre DLA (Res. 10/2017, item 22) e LAS (Res. 01/2018, item 46) em caso de duplicidade — regra do parágrafo único do art. 8º da Res. 03/2023.', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAE 20.63-1', palavras:'cosmético perfumaria higiene pessoal creme shampoo sabonete loção maquiagem beleza perfume' },
+  { id:61, tipo:'LAU',    cnae:'10.11-2 / 10.12-1 / 10.13-9', categoria:'Indústria de Alimentos', titulo:'Abate e fabricação de produtos de carne (reses, suínos, aves e outros animais)', porte:'Pequeno ≤ 5.000 m² / Médio ≤ 10.000 m² / Grande > 10.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAEs 10.11 a 10.13', palavras:'abate matadouro frigorífico carne suíno boi frango aves processamento carnes embutido charque' },
+  { id:62, tipo:'LAU',    cnae:'11.11-9',   categoria:'Indústria de Bebidas',     titulo:'Fabricação de aguardentes e outras bebidas destiladas', porte:'Médio e Grande (> 5.000 m²)', porteDesc:'Para produção até 200.000 L/ano → LAS.', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAE 11.11-9', palavras:'aguardente cachaça destilado bebida alcoólica whisky vodka gin rum destilaria usina' },
+  { id:63, tipo:'LAU',    cnae:'15.10-6',   categoria:'Indústria de Couros',      titulo:'Curtimento e outras preparações de couro', porte:'Pequeno ≤ 1.000 m² / Médio ≤ 5.000 m² / Grande > 5.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAE 15.10-6', palavras:'curtume couro pele curtimento tratamento couro bovino calçados artigos couro' },
+  { id:64, tipo:'LAU',    cnae:'08.10-0',   categoria:'Extração Mineral',         titulo:'Extração de cascalho (e outros minerais não-metálicos)', porte:'Pequeno ≤ 15 ha / Médio ≤ 35 ha / Grande > 35 ha', porteDesc:'Além da LAU, exige Autorização da ANM (Agência Nacional de Mineração) — requisito federal independente.', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAE 08.10-0', palavras:'cascalho extração mineral mineração areia saibro argila brita pedra britagem minerário' },
+  { id:65, tipo:'LAU',    cnae:'23.11-7 / 23.12-5 / 23.19-2', categoria:'Indústria de Vidro', titulo:'Fabricação de vidro plano, embalagens de vidro e artigos de vidro', porte:'Médio e Grande (área > 5.000 m²)', porteDesc:'Para portes menores (≤ 5.000 m²) → Parecer Técnico (sem enquadramento expresso em LAC/LAS).', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAEs 23.11-7, 23.12-5, 23.19-2', palavras:'vidro fabricação vidro plano vidraçaria temperagem lapidação espelho embalagem vidro artigos vidro' },
+  { id:66, tipo:'LAU',    cnae:'01.54-7',   categoria:'Pecuária / Suinocultura',  titulo:'Criação de suínos (ciclo completo, produção de leitão ou terminação)', porte:'Pequeno a partir de 15 matrizes / ver tabela por modalidade', porteDesc:'Para porte micro (≤ 60 animais) → LAC (Res. 02/2023, Anexo I).', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAE 01.54-7', palavras:'suíno porco suinocultura criação leitão terminação crescimento ciclo completo' },
+  { id:67, tipo:'LAU',    cnae:'20.61-4 / 20.62-2', categoria:'Indústria Química', titulo:'Fabricação de sabões, detergentes sintéticos e produtos de limpeza e polimento', porte:'Pequeno ≤ 5.000 m² / Médio ≤ 10.000 m² / Grande > 10.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAEs 20.61-4 e 20.62-2', palavras:'sabão detergente produto limpeza polimento alvejante desengordurante produto domissanitário fábrica' },
+  { id:68, tipo:'LAU',    cnae:'20.71-1 / 20.72-0 / 20.73-8', categoria:'Indústria Química', titulo:'Fabricação de tintas, vernizes, esmaltes, lacas, impermeabilizantes e solventes', porte:'Pequeno ≤ 5.000 m² / Médio ≤ 10.000 m² / Grande > 10.000 m²', porteDesc:'', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAEs 20.71 a 20.73', palavras:'tinta verniz esmalte laca impermeabilizante solvente pintura revestimento fábrica química' },
+  { id:69, tipo:'LAU',    cnae:'39.00-5',   categoria:'Gestão de Resíduos',       titulo:'Descontaminação e outros serviços de gestão de resíduos', porte:'Todos os portes', porteDesc:'', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAE 39.00-5', palavras:'descontaminação gestão resíduos remediação passivo ambiental solo contaminado tratamento resíduo' },
+  { id:70, tipo:'LAU',    cnae:'96.03-3/02',categoria:'Serviços Pessoais',        titulo:'Serviço de cremação de cadáveres (humanos e animais)', porte:'Médio e Grande (≥ 50 m²)', porteDesc:'Para área < 50 m² → LAS.', norma:'Res. CONAM/DF nº 03/2023, Anexo I, CNAE 96.03-3/02', palavras:'cremação crematório funeral cadáver animal humano velório funerária' },
+
+  // LAC — Res. 02/2023
+  { id:80, tipo:'LAC',    cnae:'49.30-2/03',categoria:'Transporte',               titulo:'Transporte rodoviário de produtos perigosos', porte:'Todos os portes', porteDesc:'O transporte de cargas GERAIS (não perigosas) é dispensado de licenciamento — DLA.', norma:'Res. CONAM/DF nº 02/2023, Anexo I, CNAE 49.30-2/03', palavras:'transporte produto perigoso carga perigosa químico inflamável tóxico caminhão frete logística perigosa' },
+  { id:81, tipo:'LAC',    cnae:'47.31-8',   categoria:'Comércio de Combustíveis', titulo:'Comércio varejista de combustíveis para veículos automotores (posto de gasolina)', porte:'Todos os portes', porteDesc:'Critério: capacidade total de armazenamento (m³). Pequeno ≤ 30 m³ / Médio ≤ 90 m³ / Grande > 90 m³.', norma:'Res. CONAM/DF nº 02/2023, Anexo I, CNAE 47.31-8', palavras:'posto combustível gasolina diesel etanol álcool abastecimento GNV gás veicular' },
+  { id:82, tipo:'LAC',    cnae:'46.83-4 / 46.84-2', categoria:'Comércio Atacadista', titulo:'Comércio atacadista de defensivos agrícolas, adubos, fertilizantes e produtos químicos/petroquímicos', porte:'Todos os portes', porteDesc:'', norma:'Res. CONAM/DF nº 02/2023, Anexo I, CNAEs 46.83-4 e 46.84-2', palavras:'atacadista defensivo agrícola adubo fertilizante produto químico petroquímico agroquímico distribuidor' },
+  { id:83, tipo:'LAC',    cnae:'38.12-2',   categoria:'Gestão de Resíduos',       titulo:'Coleta de resíduos perigosos', porte:'Todos os portes', porteDesc:'', norma:'Res. CONAM/DF nº 02/2023, Anexo I, CNAE 38.12-2', palavras:'coleta resíduo perigoso classe I transporte resíduo industrial químico hospitalar especial' },
+  { id:84, tipo:'LAC',    cnae:'52.11-7',   categoria:'Armazenamento',            titulo:'Armazenamento de produtos perigosos', porte:'Todos os portes', porteDesc:'', norma:'Res. CONAM/DF nº 02/2023, Anexo I, CNAE 52.11-7', palavras:'armazenamento produto perigoso depósito inflamável tóxico químico galpão logística' },
+  { id:85, tipo:'LAC',    cnae:'01.54-7C',  categoria:'Pecuária',                 titulo:'Criação de suínos (crescimento/terminação) — porte micro', porte:'≤ 60 animais', porteDesc:'Para porte Pequeno a Grande → LAU (Res. 03/2023, Anexo I).', norma:'Res. CONAM/DF nº 02/2023, Anexo I, CNAE 01.54-7C', palavras:'suíno porco criação terminação crescimento pequeno porte micro' },
+
+  // PARECER TÉCNICO
+  { id:90, tipo:'PARECER', cnae:'23.11-7 / 23.19-2', categoria:'Indústria de Vidro', titulo:'Lapidação, têmpera e beneficiamento de vidro — portes menores (≤ 5.000 m²)', porte:'Área útil ≤ 5.000 m²', porteDesc:'Para área > 5.000 m² → LAU (CNAEs 23.11-7 ou 23.19-2, Res. 03/2023). O item 68 da LAS (beneficiamento de pedras) pode ser arguido por analogia para beneficiamento de vidro em área ≤ 5.000 m², mas requer confirmação pelo Brasília Ambiental.', norma:'Sem enquadramento expresso — consultar Brasília Ambiental (art. 5º Res. 03/2023 e art. 8º Res. 10/2017)', palavras:'vidro lapidação têmpera temperagem beneficiamento vidraçaria polimento corte esquadria vidro espelho' },
+  { id:91, tipo:'PARECER', cnae:'46.42-7 / 46.49-4 / 46.46-0', categoria:'Comércio Atacadista', titulo:'Comércio atacadista de vestuário, joias/bijuterias, cosméticos e similares', porte:'Não previsto', porteDesc:'Atividades de comércio atacadista de baixo impacto sem enquadramento expresso nas normas vigentes. O órgão ambiental poderá dispensar mediante Parecer Técnico (art. 8º da Res. 10/2017) ou enquadrar em LAC/LAS.', norma:'Sem enquadramento expresso — consultar Brasília Ambiental', palavras:'atacadista vestuário roupa moda joia bijuteria relojoaria cosmético perfumaria comércio atacado distribuição' },
+  { id:92, tipo:'PARECER', cnae:'',          categoria:'Geral',                   titulo:'Atividade não prevista nos anexos das resoluções vigentes', porte:'Não previsto', porteDesc:'Quando a atividade não constar em nenhum anexo das Resoluções 02/2023 (LAC), 03/2023 (LAU), 10/2017 (DLA), 11/2017 (DCAA) ou 01/2018 (LAS), o enquadramento é definido por Parecer Técnico do Brasília Ambiental, podendo resultar em LAC, LAU, LAS ou DLA.', norma:'Art. 5º das Res. 02/2023 e 03/2023 · Art. 8º da Res. 10/2017', palavras:'atividade nova não prevista sem enquadramento especial parecer técnico consulta órgão ambiental' },
+];
+
+// CATEGORIAS para o select
+const categorias = [...new Set(atividades.map(a => a.categoria))].sort();
+const selCat = document.getElementById('input-categoria');
+categorias.forEach(c => {
+  const opt = document.createElement('option');
+  opt.value = c; opt.textContent = c;
+  selCat.appendChild(opt);
+});
+
+// ============================================================
+// LÓGICA DE BUSCA
+// ============================================================
+let tabAtiva = 'descricao';
+let filtroAtivo = 'todos';
+let ultimoResultado = [];
+
+function switchTab(tab) {
+  tabAtiva = tab;
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  const tabs = ['descricao','cnae','categoria'];
+  document.querySelectorAll('.tab-btn')[tabs.indexOf(tab)].classList.add('active');
+  document.getElementById('tab-'+tab).classList.add('active');
+  buscar();
+}
+
+function normalizar(str) {
+  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ');
+}
+
+function score(a, query) {
+  const q = normalizar(query);
+  const tokens = q.split(/\s+/).filter(t => t.length > 1);
+  if (!tokens.length) return 0;
+  const campos = normalizar([a.titulo, a.categoria, a.cnae, a.palavras].join(' '));
+  let pts = 0;
+  tokens.forEach(t => {
+    if (campos.includes(t)) pts += 2;
+    if (normalizar(a.titulo).includes(t)) pts += 3;
+    if (normalizar(a.cnae).includes(t)) pts += 5;
+  });
+  return pts;
+}
+
+function buscar() {
+  let resultado = [];
+  if (tabAtiva === 'descricao') {
+    const q = document.getElementById('input-descricao').value.trim();
+    if (q.length < 2) { limparResultados(); return; }
+    resultado = atividades.map(a => ({ ...a, _score: score(a, q) }))
+      .filter(a => a._score > 0)
+      .sort((a,b) => b._score - a._score)
+      .slice(0, 20);
+  } else if (tabAtiva === 'cnae') {
+    const q = normalizar(document.getElementById('input-cnae').value.trim());
+    if (!q) { limparResultados(); return; }
+    resultado = atividades.filter(a => normalizar(a.cnae).includes(q));
+  } else {
+    const q = document.getElementById('input-categoria').value;
+    if (!q) { limparResultados(); return; }
+    resultado = atividades.filter(a => a.categoria === q);
+  }
+  ultimoResultado = resultado;
+  renderResultados();
+}
+
+function setFiltro(tipo) {
+  filtroAtivo = tipo;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  const chips = document.querySelectorAll('.filter-chip');
+  const map = {'todos':0,'DLA':1,'DCAA':2,'LAS':3,'LAU':4,'LAC':5,'PARECER':6};
+  chips[map[tipo]]?.classList.add('active');
+  renderResultados();
+}
+
+function renderResultados() {
+  const grid = document.getElementById('results-grid');
+  const header = document.getElementById('results-header');
+  const filtersBar = document.getElementById('filters-bar');
+  const legend = document.getElementById('legend');
+
+  let res = filtroAtivo === 'todos' ? ultimoResultado : ultimoResultado.filter(a => a.tipo === filtroAtivo);
+
+  if (!ultimoResultado.length) { limparResultados(); return; }
+
+  filtersBar.style.display = 'flex';
+  legend.style.display = 'flex';
+  header.textContent = `${res.length} resultado${res.length !== 1 ? 's' : ''} encontrado${res.length !== 1 ? 's' : ''}`;
+
+  if (!res.length) {
+    grid.innerHTML = `<div class="empty-state"><svg width="40" height="40" viewBox="0 0 48 48" fill="none"><circle cx="22" cy="22" r="14" stroke="#9CA3AF" stroke-width="2.5"/><path d="M32 32l8 8" stroke="#9CA3AF" stroke-width="2.5" stroke-linecap="round"/></svg><h3>Nenhum resultado para este filtro</h3><p>Tente outro tipo de licença ou limpe o filtro.</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = res.map(a => cardHTML(a)).join('');
+}
+
+function limparResultados() {
+  document.getElementById('results-grid').innerHTML = `<div class="empty-state"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="22" cy="22" r="14" stroke="#9CA3AF" stroke-width="2.5"/><path d="M32 32l8 8" stroke="#9CA3AF" stroke-width="2.5" stroke-linecap="round"/></svg><h3>Pesquise uma atividade</h3><p>Digite palavras-chave, código CNAE ou selecione uma categoria.</p></div>`;
+  document.getElementById('results-header').textContent = '';
+  document.getElementById('filters-bar').style.display = 'none';
+  document.getElementById('legend').style.display = 'none';
+  ultimoResultado = [];
+}
+
+const tipoLabel = { DLA:'DLA — Dispensado', DCAA:'DCAA — Agropecuária', LAS:'LAS — Simplificado', LAU:'LAU — Único', LAC:'LAC — Adesão e Compromisso', PARECER:'Parecer Técnico' };
+const tipoEmoji = { DLA:'✅', DCAA:'🌿', LAS:'📋', LAU:'🔶', LAC:'🔴', PARECER:'⚠️' };
+
+function reguaHTML(tipo) {
+  const passos = ['DLA','DCAA / LAS','LAU','LAC','Trifásico'];
+  const tipoMap = { DLA:0, DCAA:1, LAS:1, LAU:2, LAC:3, PARECER:4 };
+  const idx = tipoMap[tipo] ?? 4;
+  const cls = tipo.toLowerCase();
+  return `<div class="porte-regua">${passos.map((p,i) => `<div class="porte-step${i===idx ? ` ativo ${cls}` : ''}">${p}</div>`).join('')}</div>`;
+}
+
+function cardHTML(a) {
+  const tc = a.tipo.toLowerCase();
+  const alerta = a.porteDesc ? `<div class="card-alert"><span>ℹ️</span><span>${a.porteDesc}</span></div>` : '';
+  const cnaeStr = a.cnae ? `<span style="margin-left:0.5rem;font-size:0.73rem;color:#6B7280;">CNAE: ${a.cnae}</span>` : '';
+  return `<div class="card">
+    <div class="card-top">
+      <div style="flex:1">
+        <div class="card-categoria">${a.categoria}${cnaeStr}</div>
+        <div class="card-title">${a.titulo}</div>
+      </div>
+      <span class="badge ${tc}">${tipoEmoji[a.tipo]} ${tipoLabel[a.tipo]}</span>
+    </div>
+    ${reguaHTML(a.tipo)}
+    <div class="card-details"><strong>Porte:</strong> ${a.porte}</div>
+    ${alerta}
+    <div class="card-norma">📄 ${a.norma}</div>
+  </div>`;
+}
+
+// Busca em tempo real na aba de descrição
+document.getElementById('input-descricao').addEventListener('input', buscar);
+document.getElementById('input-cnae').addEventListener('input', buscar);
+</script>
+</body>
+</html>
