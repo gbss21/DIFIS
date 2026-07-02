@@ -9,7 +9,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --vc:#1B4332;--vm:#2D6A4F;--vl:#52B788;--bege:#F5F0E8;--bege2:#EAE3D6;
-  --laranja:#D4663A;--azul:#2563EB;--cinza:#6B7280;--texto:#1C1917;
+  --cinza:#6B7280;--texto:#1C1917;
   --dla-c:#166534;--dla-bg:#DCFCE7;
   --las-c:#1D4ED8;--las-bg:#DBEAFE;
   --lau-c:#92400E;--lau-bg:#FEF3C7;
@@ -18,39 +18,43 @@
   --pt-c:#374151;--pt-bg:#F3F4F6;
 }
 body{font-family:'Inter',sans-serif;background:var(--bege);color:var(--texto);min-height:100vh}
+/* HEADER */
 header{background:var(--vc);padding:0 2rem;border-bottom:3px solid var(--vl)}
 .hi{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:1.2rem;padding:1.1rem 0}
-.hi svg{flex-shrink:0}
 .hi h1{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:#fff;line-height:1.2}
 .hi p{font-size:.75rem;color:var(--vl);margin-top:2px;letter-spacing:.04em;text-transform:uppercase}
+/* HERO */
 .hero{background:var(--vc);padding:2rem 2rem 3rem;text-align:center}
 .hero h2{font-family:'Fraunces',serif;font-size:clamp(1.5rem,4vw,2.2rem);color:#fff;font-weight:400;line-height:1.25;max-width:580px;margin:0 auto .5rem}
 .hero h2 em{color:var(--vl);font-style:italic}
 .hero p{color:#A7C4B5;font-size:.9rem;max-width:480px;margin:0 auto 1.8rem;line-height:1.6}
+/* SEARCH CARD */
 .sc{background:#fff;border-radius:16px;padding:1.4rem;max-width:660px;margin:0 auto;box-shadow:0 8px 40px rgba(0,0,0,.18)}
 .tabs{display:flex;gap:.4rem;margin-bottom:1rem}
 .tb{flex:1;padding:.5rem .4rem;border:1.5px solid var(--bege2);border-radius:8px;background:var(--bege);font-size:.8rem;font-weight:500;cursor:pointer;color:var(--cinza);transition:all .15s}
 .tb.active{background:var(--vc);color:#fff;border-color:var(--vc)}
 .tp{display:none}.tp.active{display:block}
-.ir{display:flex;gap:.5rem}
+.ir{display:flex;gap:.5rem;margin-bottom:.5rem}
 .ir input,.ir select{flex:1;padding:.7rem .9rem;border:1.5px solid var(--bege2);border-radius:10px;font-size:.92rem;font-family:'Inter',sans-serif;background:var(--bege);color:var(--texto);outline:none;transition:border-color .15s}
 .ir input:focus,.ir select:focus{border-color:var(--vl)}
-.bb{padding:.7rem 1.2rem;background:var(--vc);color:#fff;border:none;border-radius:10px;font-size:.92rem;font-weight:600;cursor:pointer;transition:background .15s;white-space:nowrap}
-.bb:hover{background:var(--vm)}
-.sh{font-size:.76rem;color:var(--cinza);margin-top:.5rem;text-align:left}
+.sh{font-size:.76rem;color:var(--cinza);text-align:left}
+/* MAIN */
 main{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem}
+/* FILTER BAR */
 .fb{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem;align-items:center}
 .fb span{font-size:.8rem;color:var(--cinza);font-weight:500;margin-right:.2rem}
 .fc{padding:.3rem .85rem;border-radius:20px;border:1.5px solid var(--bege2);background:#fff;font-size:.78rem;cursor:pointer;color:var(--cinza);font-weight:500;transition:all .15s}
-.fc.active{background:var(--vc);color:#fff;border-color:var(--vc)}
-.fc.dla.active{background:var(--dla-c);border-color:var(--dla-c);color:#fff}
-.fc.las.active{background:var(--las-c);border-color:var(--las-c);color:#fff}
-.fc.lau.active{background:#B45309;border-color:#B45309;color:#fff}
-.fc.lac.active{background:var(--lac-c);border-color:var(--lac-c);color:#fff}
-.fc.dcaa.active{background:var(--dcaa-c);border-color:var(--dcaa-c);color:#fff}
-.fc.pt.active{background:var(--pt-c);border-color:var(--pt-c);color:#fff}
+.fc.active,.fc:hover{background:var(--vc);color:#fff;border-color:var(--vc)}
+.fc.f-dla.active{background:var(--dla-c);border-color:var(--dla-c)}
+.fc.f-dcaa.active{background:var(--dcaa-c);border-color:var(--dcaa-c)}
+.fc.f-las.active{background:var(--las-c);border-color:var(--las-c)}
+.fc.f-lau.active{background:#B45309;border-color:#B45309}
+.fc.f-lac.active{background:var(--lac-c);border-color:var(--lac-c)}
+.fc.f-pt.active{background:var(--pt-c);border-color:var(--pt-c)}
+/* RESULTS */
 .rh{font-size:.83rem;color:var(--cinza);margin-bottom:.8rem}
 .rg{display:flex;flex-direction:column;gap:.8rem}
+/* CARD */
 .card{background:#fff;border-radius:12px;border:1.5px solid var(--bege2);padding:1.1rem 1.3rem;transition:box-shadow .15s}
 .card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}
 .ct{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;margin-bottom:.4rem}
@@ -63,10 +67,11 @@ main{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem}
 .badge.lac{background:var(--lac-bg);color:var(--lac-c)}
 .badge.dcaa{background:var(--dcaa-bg);color:var(--dcaa-c)}
 .badge.pt{background:var(--pt-bg);color:var(--pt-c)}
+/* RÉGUA */
 .regua{display:flex;margin:.6rem 0 .4rem;font-size:.68rem}
 .rs{flex:1;text-align:center;padding:.28rem .1rem;background:var(--bege);color:var(--cinza);border:1px solid var(--bege2);line-height:1.3}
 .rs:first-child{border-radius:6px 0 0 6px}.rs:last-child{border-radius:0 6px 6px 0}
-.rs.ativo{color:#fff;font-weight:600;z-index:1}
+.rs.ativo{color:#fff;font-weight:600}
 .rs.ativo.dla{background:var(--dla-c);border-color:var(--dla-c)}
 .rs.ativo.dcaa,.rs.ativo.las{background:var(--las-c);border-color:var(--las-c)}
 .rs.ativo.lau{background:#B45309;border-color:#B45309}
@@ -75,19 +80,21 @@ main{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem}
 .cd{font-size:.81rem;color:#374151;line-height:1.6;margin-top:.3rem}
 .cn{font-size:.73rem;color:var(--cinza);margin-top:.4rem}
 .ca{display:flex;align-items:flex-start;gap:.35rem;background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:.45rem .7rem;margin-top:.5rem;font-size:.76rem;color:#92400E;line-height:1.5}
+/* EMPTY */
 .es{text-align:center;padding:2.5rem 1rem;color:var(--cinza)}
 .es h3{font-size:.95rem;font-weight:600;margin-bottom:.3rem;color:var(--texto)}
 .es p{font-size:.83rem;line-height:1.6}
-.leg{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--bege2)}
-.li{display:flex;align-items:center;gap:.35rem;font-size:.76rem;color:#374151}
-.ld{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-
+/* PAGINAÇÃO */
 .pag{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--bege2)}
 .pb{padding:.35rem .75rem;border:1.5px solid var(--bege2);border-radius:8px;background:#fff;font-size:.8rem;cursor:pointer;color:var(--texto);font-weight:500;transition:all .15s}
 .pb:hover{background:var(--bege);border-color:var(--vm)}
 .pb.ativo{background:var(--vc);color:#fff;border-color:var(--vc)}
 .pb-sep{padding:.35rem .3rem;font-size:.8rem;color:var(--cinza)}
-
+/* LEGENDA */
+.leg{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--bege2)}
+.li{display:flex;align-items:center;gap:.35rem;font-size:.76rem;color:#374151}
+.ld{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+/* AVISO */
 .av{background:#F9FAFB;border:1px solid var(--bege2);border-radius:10px;padding:.9rem 1.1rem;margin-top:1.8rem;font-size:.76rem;color:var(--cinza);line-height:1.6}
 .av strong{color:var(--texto)}
 @media(max-width:600px){.ct{flex-direction:column;gap:.3rem}.tabs{flex-wrap:wrap}.tb{font-size:.73rem;padding:.4rem .3rem}}
@@ -110,15 +117,15 @@ main{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem}
 <button class="tb" onclick="switchTab('cat')">📂 Categoria</button>
 </div>
 <div id="tab-desc" class="tp active">
-<div class="ir"><input type="text" id="inp-desc" placeholder="Ex: padaria, fabricação de velas, oficina mecânica, extração de cascalho…" oninput="buscar()"></div>
+<div class="ir"><input type="text" id="inp-desc" placeholder="Ex: padaria, velas, oficina mecânica, cascalho..."></div>
 <p class="sh">Descreva a atividade com suas próprias palavras — sem precisar saber o CNAE.</p>
 </div>
 <div id="tab-cnae" class="tp">
-<div class="ir"><input type="text" id="inp-cnae" placeholder="Ex: 20.63-1, 32.99-0, 08.10-0…" oninput="buscar()"></div>
+<div class="ir"><input type="text" id="inp-cnae" placeholder="Ex: 20.63-1, 32.99-0, 08.10-0..."></div>
 <p class="sh">Digite o código CNAE completo ou parcial.</p>
 </div>
 <div id="tab-cat" class="tp">
-<div class="ir"><select id="inp-cat" onchange="buscar()"><option value="">— Selecione uma categoria —</option></select></div>
+<div class="ir"><select id="inp-cat"><option value="">— Selecione uma categoria —</option></select></div>
 </div>
 </div>
 </div>
@@ -126,17 +133,15 @@ main{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem}
 <div class="fb" id="fb" style="display:none">
 <span>Filtrar:</span>
 <button class="fc active" onclick="setF('todos')">Todos</button>
-<button class="fc dla"  onclick="setF('DLA')">✅ DLA</button>
-<button class="fc dcaa" onclick="setF('DCAA')">🌿 DCAA</button>
-<button class="fc las"  onclick="setF('LAS')">📋 LAS</button>
-<button class="fc lau"  onclick="setF('LAU')">🔶 LAU</button>
-<button class="fc lac"  onclick="setF('LAC')">🔴 LAC</button>
-<button class="fc pt"   onclick="setF('PT')">⚠️ Parecer</button>
+<button class="fc f-dla"  onclick="setF('DLA')">✅ DLA</button>
+<button class="fc f-dcaa" onclick="setF('DCAA')">🌿 DCAA</button>
+<button class="fc f-las"  onclick="setF('LAS')">📋 LAS</button>
+<button class="fc f-lau"  onclick="setF('LAU')">🔶 LAU</button>
+<button class="fc f-lac"  onclick="setF('LAC')">🔴 LAC</button>
+<button class="fc f-pt"   onclick="setF('PT')">⚠️ Parecer</button>
 </div>
 <div class="rh" id="rh"></div>
-<div class="rg" id="rg">
-<div class="es"><h3>Pesquise uma atividade</h3><p>Digite palavras-chave, código CNAE ou selecione uma categoria.</p></div>
-</div>
+<div class="rg" id="rg"><div class="es"><h3>Pesquise uma atividade</h3><p>Digite palavras-chave, código CNAE ou selecione uma categoria para consultar o enquadramento ambiental no DF.</p></div></div>
 <div class="leg" id="leg" style="display:none">
 <div class="li"><div class="ld" style="background:#166534"></div>DLA — Dispensado de licenciamento</div>
 <div class="li"><div class="ld" style="background:#5B21B6"></div>DCAA — Declaração agropecuária (SEAGRI-DF)</div>
@@ -145,8 +150,9 @@ main{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem}
 <div class="li"><div class="ld" style="background:#9A3412"></div>LAC — Licença por Adesão e Compromisso</div>
 <div class="li"><div class="ld" style="background:#374151"></div>Parecer Técnico do Brasília Ambiental</div>
 </div>
-<div class="av"><strong>⚠️ Aviso legal:</strong> Esta consulta tem caráter <strong>orientativo</strong>. O enquadramento definitivo depende da localização (APP, UC, ZEE-DF), do porte real e de análise do <strong>Brasília Ambiental / IBRAM</strong>. A dispensa não dispensa PGRS, outorgas ou outras licenças. Normas: Res. CONAM/DF nº 02/2023 (LAC), 03/2023 (LAU), 10/2017 (DLA), 11/2017 (DCAA), 01/2018 (LAS) e CONAMA 237/1997.</div>
+<div class="av"><strong>⚠️ Aviso legal:</strong> Esta consulta tem caráter <strong>orientativo</strong>. O enquadramento definitivo depende da localização (APP, UC, ZEE-DF), do porte real e de análise técnica do <strong>Brasília Ambiental / IBRAM</strong>. A dispensa não dispensa PGRS, outorgas ou outras licenças. Normas: Res. CONAM/DF nº 02/2023 (LAC), 03/2023 (LAU), 10/2017 (DLA), 11/2017 (DCAA), 01/2018 (LAS) e CONAMA 237/1997.</div>
 </main>
+
 <script>
 const A=[
 // ===== DLA — Res. 10/2017 (todos os 126 itens) =====
@@ -328,7 +334,7 @@ const A=[
 // ===== PARECER TÉCNICO =====
 {id:600,tipo:'PT',cnae:'23.11-7 / 23.19-2',cat:'Indústria de Vidro',tit:'Lapidação, têmpera e beneficiamento de vidro — porte pequeno (≤ 5.000 m²)',porte:'Área útil ≤ 5.000 m²',obs:'Para área > 5.000 m² → LAU (CNAEs 23.11-7 ou 23.19-2). Pode-se arguir LAS por analogia com item 71 (minerais não-metálicos), mas requer confirmação do Brasília Ambiental.',norma:'Art. 5º das Res. 02/2023 e 03/2023 + Art. 8º da Res. 10/2017',kw:'vidro lapidação têmpera temperagem polimento corte esquadria vidraçaria espelho'},
 {id:601,tipo:'PT',cnae:'46.42-7 / 46.49-4 / 46.46-0',cat:'Comércio Atacadista',tit:'Comércio atacadista de vestuário, joias, bijuterias e cosméticos',porte:'Não previsto nas normas',obs:'Pode resultar em DLA por Parecer Técnico (art. 8º Res. 10/2017).',norma:'Art. 8º da Res. 10/2017 + Art. 5º das Res. 02/2023 e 03/2023',kw:'atacadista vestuário roupa moda joia bijuteria relojoaria cosmético perfumaria distribuição comércio'},
-{id:602,tipo:'PT',cnae:'',cat:'Geral',tit:'Atividade não enquadrada em nenhuma resolução vigente',porte:'Não previsto',obs:'Brasília Ambiental poderá dispensar (DLA), enquadrar em LAC/LAU/LAS ou exigir rito trifásico (LP/LI/LO), conforme CONAMA 237/1997.',norma:'Art. 5º Res. 02/2023 e 03/2023 · Art. 8º Res. 10/2017 · CONAMA 237/1997',kw:'atividade sem enquadramento consulta prévia parecer técnico especial nova'},,
+{id:602,tipo:'PT',cnae:'',cat:'Geral',tit:'Atividade não enquadrada em nenhuma resolução vigente',porte:'Não previsto',obs:'Brasília Ambiental poderá dispensar (DLA), enquadrar em LAC/LAU/LAS ou exigir rito trifásico (LP/LI/LO), conforme CONAMA 237/1997.',norma:'Art. 5º Res. 02/2023 e 03/2023 · Art. 8º Res. 10/2017 · CONAMA 237/1997',kw:'atividade sem enquadramento consulta prévia parecer técnico especial nova'},
 // ===== DLA — Res. 10/2017 — itens 79-118 (Serviços de Utilidade Pública) e 124-126 =====
 {id:79,tipo:'DLA',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Estabilização de taludes de corte e saias de aterro',porte:'Qualquer porte',obs:'',norma:'Res. 10/2017, item 79',kw:'talude aterro estabilização contenção corte encosta muro arrimo'},
 {id:80,tipo:'DLA',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Revitalização de canais de distribuição de água para irrigação rural (fora de APP, com outorga)',porte:'Qualquer porte',obs:'Deve estar fora de APP e possuir outorga prévia de uso de água.',norma:'Res. 10/2017, item 80',kw:'canal irrigação rural água distribuição revitalização limpeza outorga'},
@@ -373,128 +379,7 @@ const A=[
 {id:124,tipo:'DLA',cnae:'',cat:'Serviço de Utilidade Pública — Saneamento',tit:'Testes pré-operacionais de máquinas, unidades operacionais, infraestruturas e equipamentos que necessitem de ajustes e adequações antes do ato autorizativo definitivo',porte:'Qualquer porte',obs:'',norma:'Res. 10/2017, item 124',kw:'teste pré-operacional máquina equipamento infraestrutura ajuste adequação comissionamento'},
 {id:125,tipo:'DLA',cnae:'',cat:'Serviço de Utilidade Pública — Saneamento',tit:'Reparo, manutenção, conserto e recuperação de dissipadores, lagoas/bacias de detenção, vertedouros e dispositivos de infiltração',porte:'Qualquer porte',obs:'',norma:'Res. 10/2017, item 125',kw:'dissipador lagoa bacia detenção vertedouro infiltração reparo manutenção drenagem'},
 {id:126,tipo:'DLA',cnae:'',cat:'Serviço de Utilidade Pública — Saneamento',tit:'Implantação de bocas de lobo, ramais, poços de visita, tubulações e galerias com interligação em sistemas de drenagem pluvial existentes',porte:'Tubulação com diâmetro > 400 mm',obs:'Para diâmetro ≤ 400 mm → dispensado sem restrição de porte.',norma:'Res. 10/2017, item 126',kw:'boca lobo ramal poço visita tubulação galeria interligação drenagem pluvial'},
-
-];
-
-const cats=[...new Set(A.map(a=>a.cat))].sort();
-const sel=document.getElementById('inp-cat');
-cats.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o);});
-
-let tabAtiva='desc',filtro='todos',ultimo=[];
-
-function switchTab(t){
-  tabAtiva=t;
-  document.querySelectorAll('.tb').forEach((b,i)=>b.classList.remove('active'));
-  document.querySelectorAll('.tp').forEach(p=>p.classList.remove('active'));
-  const ts=['desc','cnae','cat'];
-  document.querySelectorAll('.tb')[ts.indexOf(t)].classList.add('active');
-  document.getElementById('tab-'+t).classList.add('active');
-  buscar();
-}
-
-function norm(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ');}
-
-function score(a,q){
-  const ts=norm(q).split(/\s+/).filter(t=>t.length>1);
-  if(!ts.length)return 0;
-  const campos=norm([a.tit,a.cat,a.cnae,a.kw,a.porte,a.obs].join(' '));
-  let pts=0;
-  ts.forEach(t=>{
-    if(campos.includes(t))pts+=2;
-    if(norm(a.tit).includes(t))pts+=3;
-    if(norm(a.cnae).includes(t))pts+=5;
-    if(norm(a.kw).includes(t))pts+=1;
-  });
-  return pts;
-}
-
-function buscar(){
-  let res=[];
-  if(tabAtiva==='desc'){
-    const q=document.getElementById('inp-desc').value.trim();
-    if(q.length<2){limpar();return;}
-    res=A.map(a=>({...a,_s:score(a,q)})).filter(a=>a._s>0).sort((a,b)=>b._s-a._s);
-  } else if(tabAtiva==='cnae'){
-    const q=norm(document.getElementById('inp-cnae').value.trim());
-    if(!q){limpar();return;}
-    res=A.filter(a=>norm(a.cnae).includes(q));
-  } else {
-    const q=document.getElementById('inp-cat').value;
-    if(!q){limpar();return;}
-    res=A.filter(a=>a.cat===q);
-  }
-  ultimo=res;
-  render();
-}
-
-function setF(f){pagina=1;
-  filtro=f;
-  document.querySelectorAll('.fc').forEach(c=>c.classList.remove('active'));
-  const m={'todos':0,'DLA':1,'DCAA':2,'LAS':3,'LAU':4,'LAC':5,'PT':6};
-  document.querySelectorAll('.fc')[m[f]]?.classList.add('active');
-  render();
-}
-
-const TL={DLA:'✅ DLA — Dispensado',DCAA:'🌿 DCAA — Agropecuária',LAS:'📋 LAS — Simplificado',LAU:'🔶 LAU — Único',LAC:'🔴 LAC — Adesão e Compromisso',PT:'⚠️ Parecer Técnico'};
-const TC={DLA:'dla',DCAA:'dcaa',LAS:'las',LAU:'lau',LAC:'lac',PT:'pt'};
-const RI={DLA:0,DCAA:1,LAS:1,LAU:2,LAC:3,PT:4};
-const RP=['DLA','DCAA/LAS','LAU','LAC','Trifásico'];
-
-function reguaH(tipo){
-  const idx=RI[tipo]??4,cls=TC[tipo];
-  return '<div class="regua">'+RP.map((p,i)=>`<div class="rs${i===idx?' ativo '+cls:''}">${p}</div>`).join('')+'</div>';
-}
-
-function cardH(a){
-  const tc=TC[a.tipo];
-  const al=a.obs?`<div class="ca"><span>ℹ️</span><span>${a.obs}</span></div>`:'';
-  const cn=a.cnae?`<span style="margin-left:.4rem;font-size:.7rem;color:#6B7280">CNAE: ${a.cnae}</span>`:'';
-  return `<div class="card"><div class="ct"><div style="flex:1"><div class="ccat">${a.cat}${cn}</div><div class="ctit">${a.tit}</div></div><span class="badge ${tc}">${TL[a.tipo]}</span></div>${reguaH(a.tipo)}<div class="cd"><strong>Porte:</strong> ${a.porte}</div>${al}<div class="cn">📄 ${a.norma}</div></div>`;
-}
-
-let pagina=1;const POR_PAG=20;
-function render(pg){
-  pagina=pg||1;
-  const grid=document.getElementById('rg'),hd=document.getElementById('rh'),fb=document.getElementById('fb'),leg=document.getElementById('leg');
-  if(!ultimo.length){limpar();return;}
-  let res=filtro==='todos'?ultimo:ultimo.filter(a=>a.tipo===filtro);
-  fb.style.display='flex';leg.style.display='flex';
-  const total=res.length;
-  const totalPags=Math.ceil(total/POR_PAG);
-  const inicio=(pagina-1)*POR_PAG;
-  const fatia=res.slice(inicio,inicio+POR_PAG);
-  hd.textContent=`${total} resultado${total!==1?'s':''} encontrado${total!==1?'s':''} — exibindo ${inicio+1}–${Math.min(inicio+POR_PAG,total)}`;
-  if(!res.length){grid.innerHTML=`<div class="es"><h3>Nenhum resultado para este filtro</h3><p>Tente outro tipo de licença ou limpe o filtro.</p></div>`;return;}
-  let html=fatia.map(a=>cardH(a)).join('');
-  // Paginação
-  if(totalPags>1){
-    let nav='<div class="pag">';
-    if(pagina>1) nav+=`<button class="pb" onclick="render(${pagina-1})">← Anterior</button>`;
-    // Páginas
-    for(let p=1;p<=totalPags;p++){
-      if(p===1||p===totalPags||Math.abs(p-pagina)<=2){
-        nav+=`<button class="pb${p===pagina?' ativo':''}" onclick="render(${p})">${p}</button>`;
-      } else if(Math.abs(p-pagina)===3){
-        nav+='<span class="pb-sep">…</span>';
-      }
-    }
-    if(pagina<totalPags) nav+=`<button class="pb" onclick="render(${pagina+1})">Próximo →</button>`;
-    nav+='</div>';
-    html+=nav;
-  }
-  grid.innerHTML=html;
-  grid.scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-function limpar(){
-  document.getElementById('rg').innerHTML=`<div class="es"><h3>Pesquise uma atividade</h3><p>Digite palavras-chave, código CNAE ou selecione uma categoria.</p></div>`;
-  document.getElementById('rh').textContent='';
-  document.getElementById('fb').style.display='none';
-  document.getElementById('leg').style.display='none';
-  ultimo=[,
-// ===== LAS — Res. 01/2018 — itens faltantes (2-15, 17-22, 33-45, 60-67, 70, 73-76, 78-124) =====
-// Serviços de Utilidade Pública (itens 2-15)
-{id:3002,tipo:'LAS',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Barragens de nível e captações a fio d'água para abastecimento público e irrigação coletiva',porte:'Vazão nominal de projeto ≤ 500 L/s',obs:'',norma:'Res. 01/2018, item 2',kw:'barragem nível captação fio d'água abastecimento público irrigação coletiva'},
+{id:3002,tipo:'LAS',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Barragens de nível e captações a fio d\'água para abastecimento público e irrigação coletiva',porte:'Vazão nominal de projeto ≤ 500 L/s',obs:'',norma:'Res. 01/2018, item 2',kw:'barragem nível captação fio d\'água abastecimento público irrigação coletiva'},
 {id:3003,tipo:'LAS',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Implantação/operação/ampliação de unidades de transporte de esgotos (interceptores, emissários, coletores tronco, elevatórias)',porte:'Vazão > 200 L/s e ≤ 1.000 L/s',obs:'',norma:'Res. 01/2018, item 3',kw:'transporte esgoto interceptor emissário coletor tronco elevatória saneamento'},
 {id:3004,tipo:'LAS',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Implantação/operação/ampliação de unidades de tratamento de esgotos sanitários (ETE)',porte:'Vazão nominal de projeto ≤ 400 L/s',obs:'',norma:'Res. 01/2018, item 4',kw:'ETE estação tratamento esgoto sanitário saneamento'},
 {id:3005,tipo:'LAS',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Implantação/operação/reformas/recuperação/ampliação de unidades de transporte de água (adutoras, sub adutoras, reservatórios, elevatórias, boosters)',porte:'Vazão nominal de projeto > 1.251 L/s',obs:'',norma:'Res. 01/2018, item 5',kw:'adutora sub adutora reservatório elevatória booster água transporte saneamento grande porte'},
@@ -538,7 +423,7 @@ function limpar(){
 {id:3066,tipo:'LAS',cnae:'',cat:'Indústria de Plásticos',tit:'Regeneração de material plástico',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 66',kw:'regeneração plástico reaproveitamento granulado industrial'},
 {id:3067,tipo:'LAS',cnae:'',cat:'Indústria de Plásticos',tit:'Fabricação de manilhas, canos, tubos e conexões de materiais elásticos para todos os fins',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 67',kw:'cano tubo conexão manilha PVC PEAD polietileno encanamento industrial'},
 // Minerais Não-Metálicos (item 70)
-{id:3070,tipo:'LAS',cnae:'',cat:'Indústria de Minerais Não-Metálicos',tit:'Fabricação de artefatos de fibrocimento',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 70',kw:'fibrocimento artefato telha caixa d'água laje fibra cimento'},
+{id:3070,tipo:'LAS',cnae:'',cat:'Indústria de Minerais Não-Metálicos',tit:'Fabricação de artefatos de fibrocimento',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 70',kw:'fibrocimento artefato telha caixa d\'água laje fibra cimento'},
 // Minerais (itens 73-76)
 {id:3073,tipo:'LAS',cnae:'',cat:'Indústria de Minerais Não-Metálicos',tit:'Fabricação de cal virgem, hidratada ou extinta',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 73',kw:'cal virgem hidratada extinta calcário calcinação'},
 {id:3074,tipo:'LAS',cnae:'',cat:'Indústria de Minerais Não-Metálicos',tit:'Fabricação de material cerâmico (barro cozido e refratário) SEM uso de lenha',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² sem lenha → DLA (Res. 10/2017). Com lenha → ver item 75.',norma:'Res. 01/2018, item 74',kw:'cerâmica barro tijolo telha vaso refratário sem lenha gás elétrico'},
@@ -643,7 +528,7 @@ function limpar(){
 // ===== LAU — Res. 03/2023 — Anexo II (não-econômicas e infraestrutura) =====
 {id:5100,tipo:'LAU',cnae:'',cat:'Atividades Funerárias',tit:'Instalação/Operação de cemitérios',porte:'Pequeno ≤ 10 ha / Médio ≤ 50 ha / Grande > 50 ha',obs:'',norma:'Res. 03/2023, Anexo II',kw:'cemitério sepultamento funeral inumação jazigo'},
 {id:5101,tipo:'LAU',cnae:'',cat:'Atividades Hospitalares',tit:'Hospitais, clínicas, laboratórios, necrotérios, farmácias, funerárias e serviços de RSS (Resíduos de Serviços de Saúde)',porte:'Todos os portes (Pequeno ≤ 200 m³/mês de RSS)',obs:'Critério: produção mensal de RSS.',norma:'Res. 03/2023, Anexo II',kw:'hospital clínica laboratório necrotério farmácia funerária embalsamamento medicina resíduo saúde RSS'},
-{id:5102,tipo:'LAU',cnae:'',cat:'Construção Civil',tit:'Canalização de curso d'água',porte:'Qualquer extensão',obs:'Potencial poluidor Alto.',norma:'Res. 03/2023, Anexo II',kw:'canalização canal curso água rio córrego drenagem'},
+{id:5102,tipo:'LAU',cnae:'',cat:'Construção Civil',tit:'Canalização de curso d\'água',porte:'Qualquer extensão',obs:'Potencial poluidor Alto.',norma:'Res. 03/2023, Anexo II',kw:'canalização canal curso água rio córrego drenagem'},
 {id:5103,tipo:'LAU',cnae:'',cat:'Construção Civil',tit:'Instalação/Operação de canais para irrigação',porte:'Todos os portes (Pequeno ≤ 3 km)',obs:'Potencial poluidor Alto.',norma:'Res. 03/2023, Anexo II',kw:'canal irrigação implantação operação quilômetro'},
 {id:5104,tipo:'LAU',cnae:'',cat:'Construção Civil',tit:'Dragagem, desassoreamento e derrocamentos em corpos hídricos',porte:'Qualquer porte',obs:'Potencial poluidor Alto.',norma:'Res. 03/2023, Anexo II',kw:'dragagem desassoreamento derrocamento corpo hídrico rio lago'},
 {id:5105,tipo:'LAU',cnae:'',cat:'Construção Civil',tit:'Instalação de galpões em áreas rurais ou urbanas sem infraestrutura básica',porte:'Grande > 10.000 m² impermeabilizados',obs:'Potencial poluidor Baixo.',norma:'Res. 03/2023, Anexo II',kw:'galpão rural urbano sem infraestrutura armazém depósito'},
@@ -669,13 +554,193 @@ function limpar(){
 {id:6008,tipo:'LAC',cnae:'',cat:'Resíduos Sólidos',tit:'Aproveitamento térmico/coprocessamento excepcional de resíduos e Centros de Triagem de resíduos sólidos urbanos',porte:'Todos os portes',obs:'Potencial poluidor Alto (térmico) / Baixo (triagem).',norma:'Res. 02/2023, Anexo II',kw:'coprocessamento aproveitamento térmico resíduo triagem centro triagem RSU'},
 {id:6009,tipo:'LAC',cnae:'',cat:'Estradas',tit:'Manutenção de estradas rurais locais (incluindo extração de cascalho)',porte:'Pequeno ≤ 300 m³ / Médio ≤ 1.000 m³ / Grande > 1.000 m³',obs:'Potencial poluidor Baixo.',norma:'Res. 02/2023, Anexo II',kw:'manutenção estrada rural cascalho extração movimentação terra local'},
 {id:6010,tipo:'LAC',cnae:'',cat:'Náutica',tit:'Marinas, clubes náuticos e garagens náuticas de uso coletivo',porte:'Qualquer porte',obs:'Potencial poluidor Baixo.',norma:'Res. 02/2023, Anexo II',kw:'marina clube náutico garagem náutica barco embarcação'},
-{id:6011,tipo:'LAC',cnae:'',cat:'Biodiversidade',tit:'Coleta/Captura/Manejo/Resgate de Fauna, Queima Controlada e Recuperação de Área Degradada e Alterada',porte:'Qualquer porte',obs:'Categoria: Não se Aplica (não é atividade econômica típica).',norma:'Res. 02/2023, Anexo II',kw:'fauna manejo resgate captura queima controlada recuperação área degradada RAD'},
-
+{id:6011,tipo:'LAC',cnae:'',cat:'Biodiversidade',tit:'Coleta/Captura/Manejo/Resgate de Fauna, Queima Controlada e Recuperação de Área Degradada e Alterada',porte:'Qualquer porte',obs:'Categoria: Não se Aplica (não é atividade econômica típica).',norma:'Res. 02/2023, Anexo II',kw:'fauna manejo resgate captura queima controlada recuperação área degradada RAD'}
 ];
+
+const TL={DLA:'✅ DLA — Dispensado',DCAA:'🌿 DCAA — Agropecuária',LAS:'📋 LAS — Simplificado',LAU:'🔶 LAU — Único',LAC:'🔴 LAC — Adesão e Compromisso',PT:'⚠️ Parecer Técnico'};
+const TC={DLA:'dla',DCAA:'dcaa',LAS:'las',LAU:'lau',LAC:'lac',PT:'pt'};
+const RI={DLA:0,DCAA:1,LAS:1,LAU:2,LAC:3,PT:4};
+const RP=['DLA','DCAA/LAS','LAU','LAC','Trifásico'];
+
+// Categorias no select
+const cats=[...new Set(A.map(function(a){return a.cat}))].sort();
+const sel=document.getElementById('inp-cat');
+cats.forEach(function(cat){
+  var o=document.createElement('option');
+  o.value=cat; o.textContent=cat;
+  sel.appendChild(o);
+});
+
+// Estado
+var tabAtiva='desc', filtro='todos', ultimo=[], pagina=1;
+var POR_PAG=20;
+
+// Normalização
+function norm(s){
+  return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ');
 }
 
+// Score de relevância
+function score(a,q){
+  var ts=norm(q).split(/\s+/).filter(function(t){return t.length>1;});
+  if(!ts.length) return 0;
+  var campos=norm([a.tit,a.cat,a.cnae,a.kw,a.porte,a.obs].join(' '));
+  var pts=0;
+  ts.forEach(function(t){
+    if(campos.indexOf(t)>=0) pts+=2;
+    if(norm(a.tit).indexOf(t)>=0) pts+=3;
+    if(norm(a.cnae).indexOf(t)>=0) pts+=5;
+    if(norm(a.kw).indexOf(t)>=0) pts+=1;
+  });
+  return pts;
+}
+
+// Trocar aba
+function switchTab(t){
+  tabAtiva=t;
+  document.querySelectorAll('.tb').forEach(function(b){b.classList.remove('active');});
+  document.querySelectorAll('.tp').forEach(function(p){p.classList.remove('active');});
+  var ts=['desc','cnae','cat'];
+  document.querySelectorAll('.tb')[ts.indexOf(t)].classList.add('active');
+  document.getElementById('tab-'+t).classList.add('active');
+  limpar();
+}
+
+// Busca principal
+function buscar(){
+  var res=[];
+  if(tabAtiva==='desc'){
+    var q=document.getElementById('inp-desc').value.trim();
+    if(q.length<2){limpar();return;}
+    res=A.map(function(a){var s=score(a,q); return {a:a,s:s};})
+         .filter(function(x){return x.s>0;})
+         .sort(function(x,y){return y.s-x.s;})
+         .map(function(x){return x.a;});
+  } else if(tabAtiva==='cnae'){
+    var q2=norm(document.getElementById('inp-cnae').value.trim());
+    if(!q2){limpar();return;}
+    res=A.filter(function(a){return norm(a.cnae).indexOf(q2)>=0;});
+  } else {
+    var q3=document.getElementById('inp-cat').value;
+    if(!q3){limpar();return;}
+    res=A.filter(function(a){return a.cat===q3;});
+  }
+  ultimo=res;
+  pagina=1;
+  render();
+}
+
+// Filtro por tipo
+function setF(f){
+  filtro=f;
+  pagina=1;
+  document.querySelectorAll('.fc').forEach(function(c){c.classList.remove('active');});
+  var m={'todos':0,'DLA':1,'DCAA':2,'LAS':3,'LAU':4,'LAC':5,'PT':6};
+  var chips=document.querySelectorAll('.fc');
+  if(chips[m[f]]) chips[m[f]].classList.add('active');
+  render();
+}
+
+// Régua de porte
+function reguaH(tipo){
+  var cls=TC[tipo]||'pt';
+  var idx=RI[tipo]!==undefined?RI[tipo]:4;
+  var html='<div class="regua">';
+  for(var i=0;i<RP.length;i++){
+    html+='<div class="rs'+(i===idx?' ativo '+cls:'')+'">'+ RP[i]+'</div>';
+  }
+  html+='</div>';
+  return html;
+}
+
+// Card HTML
+function cardH(a){
+  var tc=TC[a.tipo]||'pt';
+  var al=a.obs?'<div class="ca"><span>ℹ️</span><span>'+a.obs+'</span></div>':'';
+  var cn=a.cnae?'<span style="margin-left:.4rem;font-size:.7rem;color:#6B7280">CNAE: '+a.cnae+'</span>':'';
+  return '<div class="card">'
+    +'<div class="ct"><div style="flex:1"><div class="ccat">'+a.cat+cn+'</div>'
+    +'<div class="ctit">'+a.tit+'</div></div>'
+    +'<span class="badge '+tc+'">'+(TL[a.tipo]||a.tipo)+'</span></div>'
+    +reguaH(a.tipo)
+    +'<div class="cd"><strong>Porte:</strong> '+a.porte+'</div>'
+    +al
+    +'<div class="cn">📄 '+a.norma+'</div>'
+    +'</div>';
+}
+
+// Renderizar resultados
+function render(){
+  var grid=document.getElementById('rg');
+  var hd=document.getElementById('rh');
+  var fb=document.getElementById('fb');
+  var leg=document.getElementById('leg');
+
+  if(!ultimo.length){limpar();return;}
+
+  var res=filtro==='todos'?ultimo:ultimo.filter(function(a){return a.tipo===filtro;});
+  var total=res.length;
+
+  fb.style.display='flex';
+  leg.style.display='flex';
+
+  if(!total){
+    hd.textContent='Nenhum resultado para este filtro';
+    grid.innerHTML='<div class="es"><h3>Nenhum resultado para este filtro</h3><p>Tente outro tipo de licença ou remova o filtro.</p></div>';
+    return;
+  }
+
+  var totalPags=Math.ceil(total/POR_PAG);
+  var inicio=(pagina-1)*POR_PAG;
+  var fim=Math.min(inicio+POR_PAG,total);
+  var fatia=res.slice(inicio,fim);
+
+  hd.textContent=total+' resultado'+(total!==1?'s':'')+' encontrado'+(total!==1?'s':'')+' — exibindo '+(inicio+1)+'–'+fim;
+
+  var html='';
+  for(var i=0;i<fatia.length;i++){
+    html+=cardH(fatia[i]);
+  }
+
+  // Paginação
+  if(totalPags>1){
+    html+='<div class="pag">';
+    if(pagina>1) html+='<button class="pb" onclick="goPage('+(pagina-1)+')">← Anterior</button>';
+    for(var p=1;p<=totalPags;p++){
+      if(p===1||p===totalPags||Math.abs(p-pagina)<=2){
+        html+='<button class="pb'+(p===pagina?' ativo':'')+'" onclick="goPage('+p+')">'+p+'</button>';
+      } else if(Math.abs(p-pagina)===3){
+        html+='<span class="pb-sep">…</span>';
+      }
+    }
+    if(pagina<totalPags) html+='<button class="pb" onclick="goPage('+(pagina+1)+')">Próximo →</button>';
+    html+='</div>';
+  }
+
+  grid.innerHTML=html;
+  if(pagina>1) grid.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function goPage(p){
+  pagina=p;
+  render();
+}
+
+function limpar(){
+  document.getElementById('rg').innerHTML='<div class="es"><h3>Pesquise uma atividade</h3><p>Digite palavras-chave, código CNAE ou selecione uma categoria.</p></div>';
+  document.getElementById('rh').textContent='';
+  document.getElementById('fb').style.display='none';
+  document.getElementById('leg').style.display='none';
+  ultimo=[];
+}
+
+// Event listeners
 document.getElementById('inp-desc').addEventListener('input',buscar);
 document.getElementById('inp-cnae').addEventListener('input',buscar);
+
+
+
+
 </script>
 </body>
 </html>
