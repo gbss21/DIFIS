@@ -17,15 +17,15 @@
   --dcaa-c:#5B21B6;--dcaa-bg:#EDE9FE;
   --pt-c:#374151;--pt-bg:#F3F4F6;
 }
-body{font-family:'Inter',sans-serif;background:var(--bege);color:var(--texto);min-height:100vh}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bege);color:var(--texto);min-height:100vh}
 /* HEADER */
 header{background:var(--vc);padding:0 2rem;border-bottom:3px solid var(--vl)}
 .hi{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:1.2rem;padding:1.1rem 0}
-.hi h1{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:#fff;line-height:1.2}
+.hi h1{font-family:'Fraunces','Georgia',serif;font-size:1.2rem;font-weight:700;color:#fff;line-height:1.2}
 .hi p{font-size:.75rem;color:var(--vl);margin-top:2px;letter-spacing:.04em;text-transform:uppercase}
 /* HERO */
 .hero{background:var(--vc);padding:2rem 2rem 3rem;text-align:center}
-.hero h2{font-family:'Fraunces',serif;font-size:clamp(1.5rem,4vw,2.2rem);color:#fff;font-weight:400;line-height:1.25;max-width:580px;margin:0 auto .5rem}
+.hero h2{font-family:'Fraunces','Georgia',serif;font-size:clamp(1.5rem,4vw,2.2rem);color:#fff;font-weight:400;line-height:1.25;max-width:580px;margin:0 auto .5rem}
 .hero h2 em{color:var(--vl);font-style:italic}
 .hero p{color:#A7C4B5;font-size:.9rem;max-width:480px;margin:0 auto 1.8rem;line-height:1.6}
 /* SEARCH CARD */
@@ -35,7 +35,7 @@ header{background:var(--vc);padding:0 2rem;border-bottom:3px solid var(--vl)}
 .tb.active{background:var(--vc);color:#fff;border-color:var(--vc)}
 .tp{display:none}.tp.active{display:block}
 .ir{display:flex;gap:.5rem;margin-bottom:.5rem}
-.ir input,.ir select{flex:1;padding:.7rem .9rem;border:1.5px solid var(--bege2);border-radius:10px;font-size:.92rem;font-family:'Inter',sans-serif;background:var(--bege);color:var(--texto);outline:none;transition:border-color .15s}
+.ir input,.ir select{flex:1;padding:.7rem .9rem;border:1.5px solid var(--bege2);border-radius:10px;font-size:.92rem;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bege);color:var(--texto);outline:none;transition:border-color .15s}
 .ir input:focus,.ir select:focus{border-color:var(--vl)}
 .sh{font-size:.76rem;color:var(--cinza);text-align:left}
 /* MAIN */
@@ -155,7 +155,6 @@ main{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem}
 
 <script>
 const A=[
-// ===== DLA — Res. 10/2017 (todos os 126 itens) =====
 {id:1,tipo:'DLA',cnae:'',cat:'Armazenamento de Combustível',tit:'Instalação de sistema de armazenamento aéreo de combustível (SAAC) para abastecimento próprio',porte:'Capacidade total ≤ 15 m³',obs:'Construído conforme normas técnicas. Para capacidade maior → consultar Brasília Ambiental.',norma:'Res. 10/2017, item 1',kw:'tanque combustível armazenamento aéreo SAAC diesel gasolina abastecimento próprio'},
 {id:2,tipo:'DLA',cnae:'',cat:'Captação de Água',tit:'Captação de água por meio de caminhões pipa',porte:'Qualquer porte',obs:'',norma:'Res. 10/2017, item 2',kw:'caminhão pipa captação água abastecimento hídrico'},
 {id:3,tipo:'DLA',cnae:'',cat:'Coleta e Reciclagem',tit:'Transporte de resíduos da construção civil e resíduos volumosos',porte:'Qualquer porte',obs:'Transportador deve estar cadastrado no sistema de gestão de RCC do DF.',norma:'Res. 10/2017, item 3',kw:'transporte resíduo construção civil entulho RCC volumoso caçamba'},
@@ -240,7 +239,6 @@ const A=[
 {id:122,tipo:'DLA',cnae:'',cat:'Telecomunicações',tit:'Serviço Limitado Privado (SLP)',porte:'Qualquer porte',obs:'',norma:'Res. 10/2017, item 122',kw:'serviço limitado privado SLP telecomunicação rádio comunicação'},
 {id:123,tipo:'DLA',cnae:'',cat:'Transporte',tit:'Transporte rodoviário de cargas em geral (exceto perigosas)',porte:'Qualquer porte',obs:'⚠️ Transporte de cargas PERIGOSAS NÃO é dispensado — exige LAC (Res. 02/2023).',norma:'Res. 10/2017, item 123',kw:'transporte carga rodoviário frete logística caminhão carreteiro mudança entrega distribuição'},
 
-// ===== DCAA — Res. 11/2017 + 02/2018 =====
 {id:200,tipo:'DCAA',cnae:'',cat:'Agricultura',tit:'Cultivo de espécies agrícolas temporárias em áreas de sequeiro já estabelecidas',porte:'≤ 500 ha (facultativa) / 500-1.000 ha (obrigatória)',obs:'DCAA emitida pela SEAGRI-DF, válida por 5 anos.',norma:'Res. 11/2017, Anexo 1 item 1 + Res. 02/2018',kw:'cultivo agricultura lavoura sequeiro grãos soja milho feijão temporária plantio safra'},
 {id:201,tipo:'DCAA',cnae:'',cat:'Agricultura',tit:'Implantação e manutenção de Sistemas Agroflorestais e culturas perenes e semiperenes',porte:'≤ 500 ha',obs:'',norma:'Res. 11/2017, Anexo 1, item 2',kw:'agroflorestal cultivo perene semiperene café cacau banana fruticultura'},
 {id:202,tipo:'DCAA',cnae:'',cat:'Agricultura',tit:'Preparo, correção e conservação de solo em áreas já cultivadas',porte:'Qualquer porte',obs:'',norma:'Res. 11/2017, Anexo 1, item 3',kw:'preparo solo calagem correção conservação solo aração gradagem'},
@@ -250,7 +248,6 @@ const A=[
 {id:206,tipo:'DCAA',cnae:'',cat:'Aquicultura',tit:'Aquicultura em espelho d\'água com espécies nativas',porte:'Espelho d\'água ≤ 2 ha',obs:'Para porte maior → LAU.',norma:'Res. 11/2017, Anexo 2, item 1',kw:'aquicultura piscicultura peixe nativo tilápia tambaqui lago viveiro espelho d\'água'},
 {id:207,tipo:'DCAA',cnae:'',cat:'Aquicultura',tit:'Aquicultura em espelho d\'água com espécies exóticas',porte:'Espelho d\'água ≤ 10.000 m²',obs:'Exige tanque de decantação e filtro.',norma:'Res. 11/2017, Anexo 2, item 2',kw:'aquicultura peixe exótico carpa tilápia viveiro tanque escavado'},
 
-// ===== LAS — Res. 01/2018 (todos os 127 itens principais) =====
 {id:301,tipo:'LAS',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Implantação/operação/ampliação de unidades de tratamento de água',porte:'Vazão ≤ 500 L/s',obs:'',norma:'Res. 01/2018, item 1',kw:'ETA estação tratamento água abastecimento público saneamento'},
 {id:302,tipo:'LAS',cnae:'',cat:'Rural',tit:'Confinamento de ruminantes',porte:'> 100 e ≤ 2.000 cabeças',obs:'Para > 2.000 cabeças → LAU (Res. 03/2023).',norma:'Res. 01/2018, item 16',kw:'confinamento gado bovino ruminante feedlot boi engorda terminação'},
 {id:303,tipo:'LAS',cnae:'',cat:'Agropecuária / Rural',tit:'Ranicultura',porte:'3.001 a 5.000 m²',obs:'Para área > 5.000 m² → LAU.',norma:'Res. 01/2018, item 23',kw:'ranicultura rã criação anfíbio'},
@@ -289,7 +286,6 @@ const A=[
 {id:336,tipo:'LAS',cnae:'',cat:'Coleta e Reciclagem',tit:'Indústria de reciclagem (exceto materiais perigosos Classe I ou II-A)',porte:'Área útil > 5.000 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017, itens 6/7).',norma:'Res. 01/2018, item 125',kw:'reciclagem recicladora indústria reciclagem papel plástico vidro pneu grande porte'},
 {id:337,tipo:'LAS',cnae:'',cat:'Comércio de Veículos',tit:'Estabelecimento para comercialização de peças reutilizáveis de veículos automotores',porte:'> 2.000 m²',obs:'Para área ≤ 2.000 m² → DLA.',norma:'Res. 01/2018, item 126',kw:'desmanche peças veículo automóvel reutilizável sucata grande porte'},
 
-// ===== LAU — Res. 03/2023 =====
 {id:400,tipo:'LAU',cnae:'01.51-2B / 01.52-1B / 01.53-9B',cat:'Pecuária — Confinamento',tit:'Criação de bovinos, outros animais de grande porte, caprinos e ovinos em confinamento',porte:'Médio e Grande (> 500 animais)',obs:'Para porte Pequeno (≤ 500) → LAU também, a partir de 101 cabeças.',norma:'Res. 03/2023, Anexo I, CNAEs 01.51 a 01.53',kw:'confinamento gado bovino vaca boi caprino ovino grande porte feedlot'},
 {id:401,tipo:'LAU',cnae:'01.54-7',cat:'Pecuária — Suinocultura',tit:'Criação de suínos (ciclo completo, produção de leitão ou terminação) — porte Pequeno a Grande',porte:'Pequeno a Grande (> 15 matrizes ou > 60 animais)',obs:'Para micro (≤ 60 animais em terminação) → LAC (Res. 02/2023).',norma:'Res. 03/2023, Anexo I, CNAE 01.54-7',kw:'suíno porco suinocultura criação leitão terminação crescimento ciclo completo granja'},
 {id:402,tipo:'LAU',cnae:'10.11-2 / 10.12-1 / 10.13-9',cat:'Indústria de Alimentos — Carne',tit:'Abate e fabricação de produtos de carne (reses, suínos, aves e outros animais)',porte:'Todos os portes',obs:'',norma:'Res. 03/2023, Anexo I, CNAEs 10.11 a 10.13',kw:'abate matadouro frigorífico carne suíno boi frango aves processamento charque embutido'},
@@ -321,7 +317,6 @@ const A=[
 {id:428,tipo:'LAU',cnae:'49.40-0',cat:'Transporte',tit:'Transporte dutoviário',porte:'Médio e Grande (> 10 km)',obs:'',norma:'Res. 03/2023, Anexo I, CNAE 49.40-0',kw:'duto gasoduto oleoduto mineroduto transporte dutoviário'},
 {id:429,tipo:'LAU',cnae:'96.03-3/02',cat:'Serviços Pessoais',tit:'Serviço de cremação de cadáveres (humanos e animais)',porte:'Médio e Grande (≥ 50 m²)',obs:'Para área < 50 m² → LAS.',norma:'Res. 03/2023, Anexo I, CNAE 96.03-3/02',kw:'cremação crematório funeral cadáver animal humano'},
 
-// ===== LAC — Res. 02/2023 =====
 {id:500,tipo:'LAC',cnae:'01.54-7C',cat:'Pecuária',tit:'Criação de suínos (crescimento/terminação) — porte micro (≤ 60 animais)',porte:'≤ 60 animais',obs:'Para portes maiores → LAU.',norma:'Res. 02/2023, Anexo I, CNAE 01.54-7C',kw:'suíno porco terminação crescimento micro pequeno porte'},
 {id:501,tipo:'LAC',cnae:'23.30-3',cat:'Indústria de Minerais',tit:'Fabricação de artefatos de concreto, cimento, fibrocimento, gesso e materiais semelhantes',porte:'Pequeno ≤ 5.000 m² / Médio ≤ 10.000 m² / Grande > 10.000 m²',obs:'',norma:'Res. 02/2023, Anexo I, CNAE 23.30-3',kw:'concreto cimento fibrocimento gesso artefato bloco pré-moldado telha'},
 {id:502,tipo:'LAC',cnae:'38.12-2',cat:'Gestão de Resíduos',tit:'Coleta de resíduos perigosos',porte:'Todos os portes',obs:'',norma:'Res. 02/2023, Anexo I, CNAE 38.12-2',kw:'coleta resíduo perigoso classe I transporte industrial químico'},
@@ -331,11 +326,9 @@ const A=[
 {id:506,tipo:'LAC',cnae:'52.11-7',cat:'Armazenamento',tit:'Armazenamento de produtos perigosos',porte:'Todos os portes',obs:'',norma:'Res. 02/2023, Anexo I, CNAE 52.11-7',kw:'armazenamento produto perigoso depósito inflamável tóxico químico galpão'},
 {id:507,tipo:'LAC',cnae:'25.21-7 / 25.22-5',cat:'Indústria Metalúrgica',tit:'Fabricação de tanques, reservatórios metálicos e caldeiras',porte:'Pequeno ≤ 5.000 m² / Médio ≤ 10.000 m² / Grande > 10.000 m²',obs:'',norma:'Res. 02/2023, Anexo I, CNAEs 25.21-7 e 25.22-5',kw:'tanque reservatório metálico caldeira vapor pressão fabricação'},
 
-// ===== PARECER TÉCNICO =====
 {id:600,tipo:'PT',cnae:'23.11-7 / 23.19-2',cat:'Indústria de Vidro',tit:'Lapidação, têmpera e beneficiamento de vidro — porte pequeno (≤ 5.000 m²)',porte:'Área útil ≤ 5.000 m²',obs:'Para área > 5.000 m² → LAU (CNAEs 23.11-7 ou 23.19-2). Pode-se arguir LAS por analogia com item 71 (minerais não-metálicos), mas requer confirmação do Brasília Ambiental.',norma:'Art. 5º das Res. 02/2023 e 03/2023 + Art. 8º da Res. 10/2017',kw:'vidro lapidação têmpera temperagem polimento corte esquadria vidraçaria espelho'},
 {id:601,tipo:'PT',cnae:'46.42-7 / 46.49-4 / 46.46-0',cat:'Comércio Atacadista',tit:'Comércio atacadista de vestuário, joias, bijuterias e cosméticos',porte:'Não previsto nas normas',obs:'Pode resultar em DLA por Parecer Técnico (art. 8º Res. 10/2017).',norma:'Art. 8º da Res. 10/2017 + Art. 5º das Res. 02/2023 e 03/2023',kw:'atacadista vestuário roupa moda joia bijuteria relojoaria cosmético perfumaria distribuição comércio'},
 {id:602,tipo:'PT',cnae:'',cat:'Geral',tit:'Atividade não enquadrada em nenhuma resolução vigente',porte:'Não previsto',obs:'Brasília Ambiental poderá dispensar (DLA), enquadrar em LAC/LAU/LAS ou exigir rito trifásico (LP/LI/LO), conforme CONAMA 237/1997.',norma:'Art. 5º Res. 02/2023 e 03/2023 · Art. 8º Res. 10/2017 · CONAMA 237/1997',kw:'atividade sem enquadramento consulta prévia parecer técnico especial nova'},
-// ===== DLA — Res. 10/2017 — itens 79-118 (Serviços de Utilidade Pública) e 124-126 =====
 {id:79,tipo:'DLA',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Estabilização de taludes de corte e saias de aterro',porte:'Qualquer porte',obs:'',norma:'Res. 10/2017, item 79',kw:'talude aterro estabilização contenção corte encosta muro arrimo'},
 {id:80,tipo:'DLA',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Revitalização de canais de distribuição de água para irrigação rural (fora de APP, com outorga)',porte:'Qualquer porte',obs:'Deve estar fora de APP e possuir outorga prévia de uso de água.',norma:'Res. 10/2017, item 80',kw:'canal irrigação rural água distribuição revitalização limpeza outorga'},
 {id:81,tipo:'DLA',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Implantação de cercas, defensas metálicas ou similares',porte:'Qualquer porte',obs:'',norma:'Res. 10/2017, item 81',kw:'cerca defensa metálica gradil muro divisa proteção'},
@@ -393,20 +386,17 @@ const A=[
 {id:3013,tipo:'LAS',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Destinação final de resíduos de construção civil (entulho)',porte:'Volume total gerado ≥ 501 m³/mês',obs:'Para volume < 501 m³/mês → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 13',kw:'resíduo construção civil entulho RCC destinação aterro reciclagem grande porte'},
 {id:3014,tipo:'LAS',cnae:'',cat:'Serviço de Utilidade Pública',tit:'Alterações viárias, criação/subdivisão/relocação de lotes, remanejamento de redes, criação de praças ou parques urbanos em parcelamento registrado',porte:'Até 60 ha',obs:'',norma:'Res. 01/2018, item 14',kw:'alteração viária loteamento subdivisão relocação lote rede infraestrutura praça parque urbano'},
 {id:3015,tipo:'LAS',cnae:'',cat:'Aeródromo',tit:'Pista de pouso e decolagem pavimentada com infraestrutura de apoio (terminal, cargas e hangares), com dimensões < 1.500 x 20 m',porte:'Todos os portes',obs:'',norma:'Res. 01/2018, item 15',kw:'aeródromo pista pouso decolagem aeroporto aviação hangar terminal'},
-// Rural (itens 17-22)
 {id:3017,tipo:'LAS',cnae:'',cat:'Rural / Irrigação',tit:'Implantação e operação de sistema de irrigação localizada para olericultura nas bacias do Rio Preto e São Marcos',porte:'> 50 ha e ≤ 150 ha',obs:'Para ≤ 50 ha → DCAA (Res. 11/2017).',norma:'Res. 01/2018, item 17',kw:'irrigação localizada olericultura hortaliça legume Rio Preto São Marcos'},
 {id:3018,tipo:'LAS',cnae:'',cat:'Rural / Irrigação',tit:'Implantação e operação de sistema de irrigação localizada para culturas perenes nas bacias do Rio Preto e São Marcos',porte:'> 100 ha e ≤ 300 ha',obs:'Para ≤ 100 ha → DCAA (Res. 11/2017).',norma:'Res. 01/2018, item 18',kw:'irrigação localizada cultura perene café fruticultura Rio Preto São Marcos'},
 {id:3019,tipo:'LAS',cnae:'',cat:'Rural / Irrigação',tit:'Implantação e operação de sistema de irrigação localizada para olericultura nas demais bacias hidrográficas',porte:'> 10 ha e ≤ 100 ha',obs:'Para ≤ 10 ha → DCAA (Res. 11/2017).',norma:'Res. 01/2018, item 19',kw:'irrigação localizada olericultura hortaliça legume bacia hidrográfica'},
 {id:3020,tipo:'LAS',cnae:'',cat:'Rural / Irrigação',tit:'Implantação e operação de sistema de irrigação localizada para culturas perenes nas demais bacias hidrográficas',porte:'> 50 ha e ≤ 150 ha',obs:'Para ≤ 50 ha → DCAA (Res. 11/2017).',norma:'Res. 01/2018, item 20',kw:'irrigação localizada cultura perene café fruticultura bacia hidrográfica'},
 {id:3021,tipo:'LAS',cnae:'',cat:'Rural / Irrigação',tit:'Implantação e operação de sistema de irrigação por aspersão para olericultura, culturas perenes ou grãos nas bacias do Rio Preto e São Marcos',porte:'> 25 ha e ≤ 100 ha',obs:'Para ≤ 25 ha → DCAA (Res. 11/2017).',norma:'Res. 01/2018, item 21',kw:'irrigação aspersão pivô central olericultura grãos Rio Preto São Marcos'},
 {id:3022,tipo:'LAS',cnae:'',cat:'Rural / Irrigação',tit:'Implantação e operação de sistema de irrigação por aspersão para olericultura, culturas perenes ou grãos nas demais bacias hidrográficas',porte:'> 10 ha e ≤ 50 ha',obs:'Para ≤ 10 ha → DCAA (Res. 11/2017).',norma:'Res. 01/2018, item 22',kw:'irrigação aspersão pivô central olericultura grãos bacia hidrográfica'},
-// Material de Transporte (itens 33-35, 37-38)
 {id:3033,tipo:'LAS',cnae:'',cat:'Indústria de Madeira',tit:'Fabricação de chapas e placas de madeira aglomerada/prensada e madeira compensada',porte:'Área útil ≥ 2.501 m²',obs:'Para área ≤ 2.500 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 33',kw:'madeira aglomerada prensada compensada MDF MDP chapa placa industrial'},
 {id:3034,tipo:'LAS',cnae:'',cat:'Indústria de Madeira',tit:'Serrarias e fabricação de produtos de lâminas da madeira',porte:'Área útil ≥ 2.501 m²',obs:'Para área ≤ 2.500 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 34',kw:'serraria madeira lâmina tábua prancha beneficiamento industrial'},
 {id:3035,tipo:'LAS',cnae:'',cat:'Indústria de Material de Transporte',tit:'Construção, montagem e reparação de veículos ferroviários, inclusive peças e acessórios',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 35',kw:'veículo ferroviário trem vagão locomotiva manutenção montagem reparação trilho'},
 {id:3037,tipo:'LAS',cnae:'',cat:'Indústria de Material de Transporte',tit:'Fabricação de carrocerias e capotas de material plástico reforçado com fibra de vidro para veículos',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 37',kw:'carroceria capota fibra vidro GRP FRP veículo industrial grande porte'},
 {id:3038,tipo:'LAS',cnae:'',cat:'Indústria de Material de Transporte',tit:'Fabricação de peças e acessórios para cabines e carrocerias de veículos (exceto borracha, vidro, plástico e elétrico)',porte:'Área útil ≥ 5.001 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 38',kw:'peça acessório cabine carroceria veículo metal estamparia industrial'},
-// Material Elétrico (itens 39-45)
 {id:3039,tipo:'LAS',cnae:'',cat:'Indústria de Material Elétrico',tit:'Fabricação de aparelhos elétricos, peças e acessórios',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 39',kw:'aparelho elétrico peça acessório eletrodoméstico eletroeletrônico fabricação'},
 {id:3040,tipo:'LAS',cnae:'',cat:'Indústria de Material Elétrico',tit:'Fabricação de lâmpadas',porte:'Área útil ≤ 1.001 m²',obs:'',norma:'Res. 01/2018, item 40',kw:'lâmpada fabricação LED fluorescente incandescente iluminação'},
 {id:3041,tipo:'LAS',cnae:'',cat:'Indústria de Material Elétrico',tit:'Fabricação de máquinas e aparelhos para produção e distribuição de energia elétrica',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 41',kw:'máquina aparelho produção distribuição energia elétrica gerador'},
@@ -414,7 +404,6 @@ const A=[
 {id:3043,tipo:'LAS',cnae:'',cat:'Indústria de Material Elétrico',tit:'Fabricação de transformadores para transmissão e distribuição de energia elétrica',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 43',kw:'transformador energia elétrica transmissão distribuição industrial'},
 {id:3044,tipo:'LAS',cnae:'',cat:'Indústria de Material Elétrico',tit:'Fabricação e montagem de lustres, abajures e semelhantes',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 44',kw:'lustre abajur luminária iluminação decorativa fabricação'},
 {id:3045,tipo:'LAS',cnae:'',cat:'Indústria de Material Elétrico',tit:'Fabricação e montagem de material eletrônico básico, máquinas e aparelhos eletrônicos',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 45',kw:'eletrônico placa circuito montagem eletrônica aparelho'},
-// Plásticos (itens 60-67)
 {id:3060,tipo:'LAS',cnae:'',cat:'Indústria de Plásticos',tit:'Fabricação de artigos de material plástico para embalagem e acondicionamento',porte:'Área útil ≥ 5.001 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 60',kw:'plástico embalagem acondicionamento sacola pote caixa industrial grande porte'},
 {id:3061,tipo:'LAS',cnae:'',cat:'Indústria de Plásticos',tit:'Fabricação de artigos de material plástico para uso doméstico e pessoal',porte:'Área útil ≥ 5.001 m²',obs:'',norma:'Res. 01/2018, item 61',kw:'plástico artigo doméstico pessoal utensílio industrial'},
 {id:3062,tipo:'LAS',cnae:'',cat:'Indústria de Plásticos',tit:'Fabricação de artigos de material plástico para uso na construção, indústria mecânica, elétrica e de transporte',porte:'Área útil ≥ 5.001 m²',obs:'',norma:'Res. 01/2018, item 62',kw:'plástico construção mecânica elétrica transporte artefato industrial'},
@@ -422,14 +411,11 @@ const A=[
 {id:3065,tipo:'LAS',cnae:'',cat:'Indústria de Plásticos',tit:'Fabricação de embalagens e artefatos plásticos por moldagem de termoplástico',porte:'Área útil ≥ 5.001 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 65',kw:'plástico embalagem artefato termoplástico injeção moldagem sopro industrial'},
 {id:3066,tipo:'LAS',cnae:'',cat:'Indústria de Plásticos',tit:'Regeneração de material plástico',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 66',kw:'regeneração plástico reaproveitamento granulado industrial'},
 {id:3067,tipo:'LAS',cnae:'',cat:'Indústria de Plásticos',tit:'Fabricação de manilhas, canos, tubos e conexões de materiais elásticos para todos os fins',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 67',kw:'cano tubo conexão manilha PVC PEAD polietileno encanamento industrial'},
-// Minerais Não-Metálicos (item 70)
 {id:3070,tipo:'LAS',cnae:'',cat:'Indústria de Minerais Não-Metálicos',tit:'Fabricação de artefatos de fibrocimento',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 70',kw:'fibrocimento artefato telha caixa d\'água laje fibra cimento'},
-// Minerais (itens 73-76)
 {id:3073,tipo:'LAS',cnae:'',cat:'Indústria de Minerais Não-Metálicos',tit:'Fabricação de cal virgem, hidratada ou extinta',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 73',kw:'cal virgem hidratada extinta calcário calcinação'},
 {id:3074,tipo:'LAS',cnae:'',cat:'Indústria de Minerais Não-Metálicos',tit:'Fabricação de material cerâmico (barro cozido e refratário) SEM uso de lenha',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² sem lenha → DLA (Res. 10/2017). Com lenha → ver item 75.',norma:'Res. 01/2018, item 74',kw:'cerâmica barro tijolo telha vaso refratário sem lenha gás elétrico'},
 {id:3075,tipo:'LAS',cnae:'',cat:'Indústria de Minerais Não-Metálicos',tit:'Fabricação de material cerâmico (barro cozido e refratário) COM uso de lenha',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 75',kw:'cerâmica barro tijolo telha vaso refratário lenha olaria'},
 {id:3076,tipo:'LAS',cnae:'',cat:'Indústria de Minerais Não-Metálicos',tit:'Fabricação de artefatos de amianto ou asbestos, inclusive artigos de vestuário e para segurança industrial',porte:'Área útil ≤ 1.000 m²',obs:'⚠️ Atividade sujeita a restrições e regulamentação específica pela natureza do amianto.',norma:'Res. 01/2018, item 76',kw:'amianto asbesto fibrocimento material isolante'},
-// Mobiliário (itens 78-85)
 {id:3078,tipo:'LAS',cnae:'',cat:'Indústria do Mobiliário',tit:'Fabricação de móveis de madeira COM uso de produto florestal primário',porte:'Área útil ≤ 1.000 m²',obs:'Para área ≥ 5.001 m² sem produto florestal → LAS (item 77).',norma:'Res. 01/2018, item 78',kw:'móvel madeira florestal primário produto florestal tora'},
 {id:3079,tipo:'LAS',cnae:'',cat:'Indústria do Mobiliário',tit:'Fabricação de móveis de material plástico',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 79',kw:'móvel plástico polipropileno polietileno cadeira mesa jardim'},
 {id:3080,tipo:'LAS',cnae:'',cat:'Indústria do Mobiliário',tit:'Fabricação de móveis de metal ou com predominância de metal',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 80',kw:'móvel metal aço ferro estante armário arquivo industrial'},
@@ -438,17 +424,14 @@ const A=[
 {id:3083,tipo:'LAS',cnae:'',cat:'Indústria do Mobiliário',tit:'Fabricação de móveis sem espumas e sem verniz/pintura, COM uso de produto florestal primário',porte:'Área útil ≤ 1.000 m²',obs:'',norma:'Res. 01/2018, item 83',kw:'móvel florestal primário sem espuma sem verniz madeira produto florestal'},
 {id:3084,tipo:'LAS',cnae:'',cat:'Indústria do Mobiliário',tit:'Fabricação, montagem e acabamento de artigos diversos do mobiliário',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 84',kw:'mobiliário acabamento montagem artefato móvel industrial'},
 {id:3085,tipo:'LAS',cnae:'',cat:'Indústria do Mobiliário',tit:'Fabricação, montagem e acabamento de artigos diversos do mobiliário COM uso de produto florestal primário',porte:'Área útil ≤ 1.000 m²',obs:'',norma:'Res. 01/2018, item 85',kw:'mobiliário florestal primário acabamento montagem madeira produto florestal'},
-// Papel e Papelão (itens 86-89)
 {id:3086,tipo:'LAS',cnae:'',cat:'Indústria do Papel e Papelão',tit:'Corte, dobra e montagem de papel, papelão e cartolina para fabricação de produtos e derivados',porte:'Área útil ≥ 5.001 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 86',kw:'papel papelão cartolina corte dobra embalagem caixa gráfica industrial'},
 {id:3087,tipo:'LAS',cnae:'',cat:'Indústria do Papel e Papelão',tit:'Fabricação de artigos de papel, papelão, cartolina e cartão para revestimento',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 87',kw:'papel papelão cartolina cartão revestimento embalagem'},
 {id:3088,tipo:'LAS',cnae:'',cat:'Indústria do Papel e Papelão',tit:'Fabricação de papel, papelão e cartolina a partir de aparas ou reaproveitamento de papel',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 88',kw:'papel reciclado apara reaproveitamento papelão reciclagem industrial'},
 {id:3089,tipo:'LAS',cnae:'',cat:'Indústria do Papel e Papelão',tit:'Preparo do papel e fabricação de embalagens de papel/papelão impressos ou não, simples ou plastificado',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 89',kw:'papel papelão embalagem impresso plastificado preparo fabricação'},
-// Editorial e Gráfica (itens 90-93)
 {id:3090,tipo:'LAS',cnae:'',cat:'Indústria Editorial e Gráfica',tit:'Impressão de jornais, periódicos, livros, material escolar e outras obras de texto',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 90',kw:'impressão jornal periódico livro material escolar editorial gráfica'},
 {id:3091,tipo:'LAS',cnae:'',cat:'Indústria Editorial e Gráfica',tit:'Impressão de material para usos industrial, comercial e propaganda',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 91',kw:'impressão material industrial comercial propaganda publicidade gráfica'},
 {id:3092,tipo:'LAS',cnae:'',cat:'Indústria Editorial e Gráfica',tit:'Impressão tipográfica e litográfica em papel, papelão, cartolina e outros materiais',porte:'Área útil ≤ 1.000 m²',obs:'',norma:'Res. 01/2018, item 92',kw:'impressão tipografia litografia papel papelão cartolina gráfica serigrafia'},
 {id:3093,tipo:'LAS',cnae:'',cat:'Indústria Editorial e Gráfica',tit:'Impressão OFF SET em papel, papelão, cartolina e outros materiais',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 93',kw:'impressão off set offset papel papelão gráfica'},
-// Mecânica (itens 94-102)
 {id:3094,tipo:'LAS',cnae:'',cat:'Indústria Mecânica',tit:'Fabricação de caldeiras geradoras de vapor',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 94',kw:'caldeira vapor gerador caldeiraria industrial'},
 {id:3095,tipo:'LAS',cnae:'',cat:'Indústria Mecânica',tit:'Fabricação de equipamentos de transmissão para fins industriais',porte:'Área útil ≤ 5.000 m²',obs:'',norma:'Res. 01/2018, item 95',kw:'equipamento transmissão industrial mecânica engrenagem redutor'},
 {id:3096,tipo:'LAS',cnae:'',cat:'Indústria Mecânica',tit:'Fabricação de máquinas motrizes não-elétricas, salvo motores à combustão',porte:'Área útil ≥ 5.001 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 96',kw:'máquina motriz não elétrica mecânica industrial grande porte'},
@@ -458,7 +441,6 @@ const A=[
 {id:3100,tipo:'LAS',cnae:'',cat:'Indústria Mecânica',tit:'Montagem de máquinas, aparelhos e equipamentos industriais, inclusive peças e acessórios',porte:'Área útil ≥ 5.001 m²',obs:'Para área ≤ 1.000 m² → LAS (item 98).',norma:'Res. 01/2018, item 100',kw:'máquina industrial equipamento montagem industrial grande porte'},
 {id:3101,tipo:'LAS',cnae:'',cat:'Indústria Mecânica',tit:'Fabricação e montagem de máquinas, aparelhos e utensílios elétricos ou não, para escritório (exclusive eletrônico)',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 101',kw:'máquina utensílio escritório não eletrônico industrial'},
 {id:3102,tipo:'LAS',cnae:'',cat:'Indústria Mecânica',tit:'Fabricação de obras de caldeiraria pesada',porte:'Área útil ≥ 1.001 m²',obs:'',norma:'Res. 01/2018, item 102',kw:'caldeiraria pesada obra industrial vaso pressão'},
-// Metalúrgica (itens 103-110)
 {id:3103,tipo:'LAS',cnae:'',cat:'Indústria Metalúrgica',tit:'Metalurgia — corte e dobra de material metálico e confecção de artefatos metálicos',porte:'Área útil ≥ 5.001 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 103',kw:'metalurgia metal corte dobra artefato serralheria industrial grande porte'},
 {id:3104,tipo:'LAS',cnae:'',cat:'Indústria Metalúrgica',tit:'Fabricação de artefatos de metal para escritório, uso pessoal e doméstico',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 104',kw:'artefato metal escritório uso pessoal doméstico utensílio industrial'},
 {id:3105,tipo:'LAS',cnae:'',cat:'Indústria Metalúrgica',tit:'Fabricação de artefatos de trefilados de ferro e aço e de metal não-ferroso',porte:'Área útil ≥ 5.001 m²',obs:'',norma:'Res. 01/2018, item 105',kw:'trefilado ferro aço metal não ferroso artefato industrial'},
@@ -467,10 +449,8 @@ const A=[
 {id:3108,tipo:'LAS',cnae:'',cat:'Indústria Metalúrgica',tit:'Fabricação de estruturas metálicas',porte:'Área útil ≤ 1.000 m²',obs:'Para área > 1.000 m² → verificar LAU (Res. 03/2023, CNAE 25.11-0).',norma:'Res. 01/2018, item 108',kw:'estrutura metálica galpão hangar cobertura metálica construção metal'},
 {id:3109,tipo:'LAS',cnae:'',cat:'Indústria Metalúrgica',tit:'Fabricação de ferramentas',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 109',kw:'ferramenta chave alicate martelo serra broca ferramentaria industrial'},
 {id:3110,tipo:'LAS',cnae:'',cat:'Indústria Metalúrgica',tit:'Fabricação de tanques, reservatórios e outros recipientes metálicos',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 110',kw:'tanque reservatório recipiente metálico silo cisterna caldeiraria industrial'},
-// Têxtil (itens 111-112)
 {id:3111,tipo:'LAS',cnae:'',cat:'Indústria Têxtil',tit:'Fabricação de artigos de passamanaria, tapeçaria, cordoaria, estopa e sacaria',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 111',kw:'passamanaria tapeçaria cordoaria corda estopa sacaria saco tecido industrial'},
 {id:3112,tipo:'LAS',cnae:'',cat:'Indústria Têxtil',tit:'Fiação artesanal',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 112',kw:'fiação artesanal fio lã algodão tecelagem industrial'},
-// Indústrias Diversas (itens 113-120)
 {id:3113,tipo:'LAS',cnae:'',cat:'Indústrias Diversas',tit:'Fabricação de materiais químicos fotográficos',porte:'Área útil ≤ 1.000 m²',obs:'',norma:'Res. 01/2018, item 113',kw:'material químico fotográfico revelação filme fotografia'},
 {id:3114,tipo:'LAS',cnae:'',cat:'Indústrias Diversas',tit:'Fabricação de aparelhos e instrumentos de ótica e fotográficos',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 114',kw:'ótica fotografia instrumento óptico lente óculos câmera microscópio industrial'},
 {id:3115,tipo:'LAS',cnae:'',cat:'Indústrias Diversas',tit:'Fabricação de brinquedos',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 115',kw:'brinquedo boneca carrinho jogo educativo infantil plástico industrial'},
@@ -479,13 +459,11 @@ const A=[
 {id:3118,tipo:'LAS',cnae:'',cat:'Indústrias Diversas',tit:'Fabricação de instrumentos, utensílios e aparelhos para serviços de saúde, sem reagentes, resinas ou radiação',porte:'Área útil ≥ 5.001 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 118',kw:'instrumento médico hospitalar saúde equipamento clínica cirurgia sem reagente industrial'},
 {id:3119,tipo:'LAS',cnae:'',cat:'Indústrias Diversas',tit:'Fabricação de roupas profissionais e acessórios para segurança industrial e pessoal (EPI)',porte:'Área útil ≥ 5.001 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 119',kw:'EPI roupa profissional segurança industrial capacete luva bota proteção industrial grande porte'},
 {id:3120,tipo:'LAS',cnae:'',cat:'Indústrias Diversas',tit:'Fabricação de seringas, agulhas hipodérmicas e materiais para medicina, cirurgia, odontologia e laboratório',porte:'Área útil ≥ 5.001 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 120',kw:'seringa agulha hipodérmica material médico cirúrgico odontológico laboratório industrial'},
-// Borracha (itens 121-124)
 {id:3121,tipo:'LAS',cnae:'',cat:'Indústria de Borracha',tit:'Fabricação de canos, tubos, mangueiras e mangotes de borracha',porte:'Área útil ≥ 1.001 m²',obs:'Para área ≤ 1.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 121',kw:'borracha cano tubo mangueira mangote industrial'},
 {id:3122,tipo:'LAS',cnae:'',cat:'Indústria de Borracha',tit:'Fabricação de outros artefatos de borracha',porte:'Área útil ≥ 5.000 m²',obs:'Para área ≤ 5.000 m² → DLA (Res. 10/2017).',norma:'Res. 01/2018, item 122',kw:'borracha artefato peça vedação gaxeta retentor industrial grande porte'},
 {id:3123,tipo:'LAS',cnae:'',cat:'Indústria de Borracha',tit:'Fabricação de pneumáticos, câmaras de ar e material para recondicionamento de pneumáticos',porte:'Área útil ≤ 1.000 m²',obs:'Para área maior → LAU (Res. 03/2023, CNAE 22.11-1).',norma:'Res. 01/2018, item 123',kw:'pneumático pneu câmara ar material recondicionamento borracha'},
 {id:3124,tipo:'LAS',cnae:'',cat:'Indústria de Borracha',tit:'Recondicionamento e recauchutagem de pneumáticos',porte:'Área útil ≤ 1.000 m²',obs:'Para área maior → LAU (Res. 03/2023, CNAE 22.12-9).',norma:'Res. 01/2018, item 124',kw:'recauchutagem recondicionamento pneu pneumático borracha'},
 
-// ===== DCAA — Res. 11/2017 — itens faltantes =====
 {id:4001,tipo:'DCAA',cnae:'',cat:'Agropecuária',tit:'Meliponários para produção artesanal de abelhas nativas',porte:'≤ 50 colônias',obs:'DCAA facultativa (Res. 11/2017, Anexo 1).',norma:'Res. 11/2017, Anexo 1, item 9',kw:'abelha nativa meliponário mel jataí mandaçaia apicultura artesanal'},
 {id:4002,tipo:'DCAA',cnae:'',cat:'Agropecuária',tit:'Agroindústria artesanal com sistema de tratamento de efluentes e destinação adequada de resíduos',porte:'Conforme legislação específica da SEAGRI',obs:'DCAA facultativa. Emitida pela SEAGRI-DF.',norma:'Res. 11/2017, Anexo 1, item 11',kw:'agroindústria artesanal alimento processamento rural pequeno porte'},
 {id:4003,tipo:'DCAA',cnae:'',cat:'Agropecuária',tit:'Agroindústria de pequeno porte vegetal com tratamento de efluentes e destinação adequada de resíduos',porte:'Conforme legislação específica da SEAGRI',obs:'DCAA facultativa. Emitida pela SEAGRI-DF.',norma:'Res. 11/2017, Anexo 1, item 12',kw:'agroindústria vegetal pequeno porte processamento rural'},
@@ -500,7 +478,6 @@ const A=[
 {id:4012,tipo:'DCAA',cnae:'',cat:'Agropecuária',tit:'Fabricação de rações balanceadas somente por mistura de matéria-prima (DCAA obrigatória)',porte:'Qualquer porte',obs:'Emitida pela SEAGRI-DF. Se o processo envolver moagem ou extrusão → LAS.',norma:'Res. 11/2017, Anexo 2, item 12',kw:'ração balanceada mistura matéria prima DCAA obrigatória alimento animal'},
 {id:4013,tipo:'DCAA',cnae:'',cat:'Agropecuária',tit:'Ranicultura (pequeno porte)',porte:'≤ 3.000 m² de área útil',obs:'Para 3.001-5.000 m² → LAS. Para > 5.000 m² → LAU.',norma:'Res. 11/2017, Anexo 2, item 13',kw:'ranicultura rã anfíbio criação pequeno porte'},
 
-// ===== LAU — Res. 03/2023 — Anexo I itens faltantes =====
 {id:5001,tipo:'LAU',cnae:'01.55-5',cat:'Pecuária — Avicultura',tit:'Granja de matrizes, granja de poedeiras e unidades de frango de corte (portes Médio e Grande)',porte:'Médio > 200.000 / Grande > 400.000 animais',obs:'Potencial poluidor Baixo. Para porte Micro/Pequeno → DCAA (Res. 11/2017).',norma:'Res. 03/2023, Anexo I, CNAE 01.55-5',kw:'granja frango corte postura ovo matriz incubatório avicultura industrial'},
 {id:5002,tipo:'LAU',cnae:'01.61-0A',cat:'Agricultura — Irrigação',tit:'Atividades de apoio à agricultura — Irrigação',porte:'Médio e Grande (> 50 ha)',obs:'',norma:'Res. 03/2023, Anexo I, CNAE 01.61-0A',kw:'irrigação agricultura apoio sistema irrigado pivô aspersor'},
 {id:5003,tipo:'LAU',cnae:'01.61-0B',cat:'Agricultura — Barragem',tit:'Barragem de irrigação/perenização',porte:'Todos os portes (Pequeno ≤ 1 ha inundado)',obs:'Potencial poluidor Alto.',norma:'Res. 03/2023, Anexo I, CNAE 01.61-0B',kw:'barragem irrigação perenização água represamento açude'},
@@ -525,7 +502,6 @@ const A=[
 {id:5022,tipo:'LAU',cnae:'32.40-0 / 32.92-2',cat:'Indústrias Diversas',tit:'Fabricação de brinquedos, jogos recreativos e equipamentos/acessórios para segurança pessoal e profissional',porte:'Médio e Grande (> 5.000 m²)',obs:'',norma:'Res. 03/2023, Anexo I, CNAEs 32.40-0 e 32.92-2',kw:'brinquedo jogo recreativo equipamento segurança EPI proteção pessoal profissional industrial'},
 {id:5023,tipo:'LAU',cnae:'35.30-1',cat:'Geração de Energia',tit:'Produção e distribuição de vapor, água quente e ar condicionado',porte:'Todos os portes',obs:'Potencial poluidor Alto.',norma:'Res. 03/2023, Anexo I, CNAE 35.30-1',kw:'vapor água quente ar condicionado produção distribuição energia térmica'},
 
-// ===== LAU — Res. 03/2023 — Anexo II (não-econômicas e infraestrutura) =====
 {id:5100,tipo:'LAU',cnae:'',cat:'Atividades Funerárias',tit:'Instalação/Operação de cemitérios',porte:'Pequeno ≤ 10 ha / Médio ≤ 50 ha / Grande > 50 ha',obs:'',norma:'Res. 03/2023, Anexo II',kw:'cemitério sepultamento funeral inumação jazigo'},
 {id:5101,tipo:'LAU',cnae:'',cat:'Atividades Hospitalares',tit:'Hospitais, clínicas, laboratórios, necrotérios, farmácias, funerárias e serviços de RSS (Resíduos de Serviços de Saúde)',porte:'Todos os portes (Pequeno ≤ 200 m³/mês de RSS)',obs:'Critério: produção mensal de RSS.',norma:'Res. 03/2023, Anexo II',kw:'hospital clínica laboratório necrotério farmácia funerária embalsamamento medicina resíduo saúde RSS'},
 {id:5102,tipo:'LAU',cnae:'',cat:'Construção Civil',tit:'Canalização de curso d\'água',porte:'Qualquer extensão',obs:'Potencial poluidor Alto.',norma:'Res. 03/2023, Anexo II',kw:'canalização canal curso água rio córrego drenagem'},
@@ -543,7 +519,6 @@ const A=[
 {id:5114,tipo:'LAU',cnae:'',cat:'Estradas',tit:'Duplicação/terceira faixa de rodovias sem realocação de população',porte:'Qualquer extensão',obs:'Potencial poluidor Alto.',norma:'Res. 03/2023, Anexo II',kw:'rodovia duplicação terceira faixa sem realocação ampliação'},
 {id:5115,tipo:'LAU',cnae:'',cat:'Abastecimento de Água',tit:'Instalação/Operação de ETA (Estação de Tratamento de Água), captação direta e barragem de acumulação',porte:'Grande > 2.400 m³/dia (ETA/captação)',obs:'',norma:'Res. 03/2023, Anexo II',kw:'ETA estação tratamento água captação barragem acumulação reservatório abastecimento'},
 
-// ===== LAC — Res. 02/2023 — Anexo II (não-econômicas) =====
 {id:6001,tipo:'LAC',cnae:'',cat:'Construção Civil',tit:'Revitalização e recuperação de canais comunitários de água para irrigação em área rural',porte:'Qualquer extensão',obs:'Potencial poluidor Baixo.',norma:'Res. 02/2023, Anexo II',kw:'canal comunitário água irrigação rural revitalização recuperação'},
 {id:6002,tipo:'LAC',cnae:'',cat:'Construção Civil',tit:'Terraplanagem',porte:'Todos os portes',obs:'Potencial poluidor Baixo. Atenção ao limite de 100 m³ da DLA (Res. 10/2017) — acima disso, LAC.',norma:'Res. 02/2023, Anexo II',kw:'terraplanagem terraplenagem nivelamento aterro corte movimentação terra'},
 {id:6003,tipo:'LAC',cnae:'',cat:'Construção Civil',tit:'Dosadora de Concreto (Betoneira)',porte:'Médio e Grande > 100 m³/dia',obs:'Para Pequeno ≤ 100 m³/dia → também LAC.',norma:'Res. 02/2023, Anexo II',kw:'betoneira dosadora concreto central concreto usinado'},
@@ -559,7 +534,6 @@ const A=[
 
 const TL={DLA:'✅ DLA — Dispensado',DCAA:'🌿 DCAA — Agropecuária',LAS:'📋 LAS — Simplificado',LAU:'🔶 LAU — Único',LAC:'🔴 LAC — Adesão e Compromisso',PT:'⚠️ Parecer Técnico'};
 
-// Mapa de normas para nomes completos
 const NORMAS={
   'Res. 10/2017': 'Resolução CONAM/DF nº 10, de 20 de dezembro de 2017 — Dispensa de Licenciamento Ambiental (DLA)',
   'Res. 11/2017': 'Resolução CONAM/DF nº 11, de 20 de dezembro de 2017 — Declaração de Conformidade de Atividade Agropecuária (DCAA)',
@@ -577,7 +551,6 @@ function nomeNorma(normaStr){
   var chaves = Object.keys(NORMAS);
   for(var i=0;i<chaves.length;i++){
     if(normaStr.indexOf(chaves[i])>=0){
-      // Substituir a referência curta pelo nome completo mantendo detalhes do item/anexo
       var sufixo = normaStr.replace(chaves[i],'').trim();
       resultado = NORMAS[chaves[i]] + (sufixo ? ' — ' + sufixo.replace(/^[,—\-\s]+/,'') : '');
       break;
@@ -589,7 +562,6 @@ const TC={DLA:'dla',DCAA:'dcaa',LAS:'las',LAU:'lau',LAC:'lac',PT:'pt'};
 const RI={DLA:0,DCAA:1,LAS:2,LAU:3,LAC:4,PT:5};
 const RP=['DLA','DCAA','LAS','LAU','LAC','Trifásico'];
 
-// Categorias no select
 const cats=[...new Set(A.map(function(a){return a.cat}))].sort();
 const sel=document.getElementById('inp-cat');
 cats.forEach(function(cat){
@@ -598,16 +570,13 @@ cats.forEach(function(cat){
   sel.appendChild(o);
 });
 
-// Estado
 var tabAtiva='desc', filtro='todos', ultimo=[], pagina=1;
 var POR_PAG=20;
 
-// Normalização
 function norm(s){
   return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ');
 }
 
-// Score de relevância
 function score(a,q){
   var ts=norm(q).split(/\s+/).filter(function(t){return t.length>1;});
   if(!ts.length) return 0;
@@ -622,7 +591,6 @@ function score(a,q){
   return pts;
 }
 
-// Trocar aba
 function switchTab(t){
   tabAtiva=t;
   document.querySelectorAll('.tb').forEach(function(b){b.classList.remove('active');});
@@ -633,7 +601,6 @@ function switchTab(t){
   limpar();
 }
 
-// Busca principal
 function buscar(){
   var res=[];
   if(tabAtiva==='desc'){
@@ -657,7 +624,6 @@ function buscar(){
   render();
 }
 
-// Filtro por tipo
 function setF(f){
   filtro=f;
   pagina=1;
@@ -668,7 +634,6 @@ function setF(f){
   render();
 }
 
-// Régua de porte
 function reguaH(tipo){
   var cls=TC[tipo]||'pt';
   var idx=RI[tipo]!==undefined?RI[tipo]:4;
@@ -680,7 +645,6 @@ function reguaH(tipo){
   return html;
 }
 
-// Card HTML
 function cardH(a){
   var tc=TC[a.tipo]||'pt';
   var al=a.obs?'<div class="ca"><span>ℹ️</span><span>'+a.obs+'</span></div>':'';
@@ -696,7 +660,6 @@ function cardH(a){
     +'</div>';
 }
 
-// Renderizar resultados
 function render(){
   var grid=document.getElementById('rg');
   var hd=document.getElementById('rh');
@@ -729,7 +692,6 @@ function render(){
     html+=cardH(fatia[i]);
   }
 
-  // Paginação
   if(totalPags>1){
     html+='<div class="pag">';
     if(pagina>1) html+='<button class="pb" onclick="goPage('+(pagina-1)+')">← Anterior</button>';
@@ -761,7 +723,6 @@ function limpar(){
   ultimo=[];
 }
 
-// Event listeners
 document.getElementById('inp-desc').addEventListener('input',buscar);
 document.getElementById('inp-cnae').addEventListener('input',buscar);
 
