@@ -73,7 +73,7 @@ main{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem}
 .rs:first-child{border-radius:6px 0 0 6px}.rs:last-child{border-radius:0 6px 6px 0}
 .rs.ativo{color:#fff;font-weight:600}
 .rs.ativo.dla{background:var(--dla-c);border-color:var(--dla-c)}
-.rs.ativo.dcaa,.rs.ativo.las{background:var(--las-c);border-color:var(--las-c)}
+.rs.ativo.dcaa{background:var(--dcaa-c);border-color:var(--dcaa-c)}.rs.ativo.las{background:var(--las-c);border-color:var(--las-c)}
 .rs.ativo.lau{background:#B45309;border-color:#B45309}
 .rs.ativo.lac{background:var(--lac-c);border-color:var(--lac-c)}
 .rs.ativo.pt{background:var(--pt-c);border-color:var(--pt-c)}
@@ -558,9 +558,36 @@ const A=[
 ];
 
 const TL={DLA:'✅ DLA — Dispensado',DCAA:'🌿 DCAA — Agropecuária',LAS:'📋 LAS — Simplificado',LAU:'🔶 LAU — Único',LAC:'🔴 LAC — Adesão e Compromisso',PT:'⚠️ Parecer Técnico'};
+
+// Mapa de normas para nomes completos
+const NORMAS={
+  'Res. 10/2017': 'Resolução CONAM/DF nº 10, de 20 de dezembro de 2017 — Dispensa de Licenciamento Ambiental (DLA)',
+  'Res. 11/2017': 'Resolução CONAM/DF nº 11, de 20 de dezembro de 2017 — Declaração de Conformidade de Atividade Agropecuária (DCAA)',
+  'Res. 02/2018': 'Resolução CONAM/DF nº 02, de 16 de outubro de 2018 — Altera Anexo 2 da Res. 11/2017 (DCAA)',
+  'Res. 01/2018': 'Resolução CONAM/DF nº 01, de 30 de janeiro de 2018 — Licenciamento Ambiental Simplificado (LAS)',
+  'Res. 02/2023': 'Resolução CONAM/DF nº 02, de 21 de novembro de 2023 — Licença Ambiental por Adesão e Compromisso (LAC)',
+  'Res. 03/2023': 'Resolução CONAM/DF nº 03, de 21 de novembro de 2023 — Licença Ambiental Única (LAU)',
+  'Res. 09/2017': 'Resolução CONAM/DF nº 09, de 20 de dezembro de 2017 — Autorização Ambiental',
+  'Res. CONAMA 237/1997': 'Resolução CONAMA nº 237, de 19 de dezembro de 1997 — Licenciamento Ambiental Federal',
+  'CONAMA 237/1997': 'Resolução CONAMA nº 237, de 19 de dezembro de 1997 — Licenciamento Ambiental Federal'
+};
+
+function nomeNorma(normaStr){
+  var resultado = normaStr;
+  var chaves = Object.keys(NORMAS);
+  for(var i=0;i<chaves.length;i++){
+    if(normaStr.indexOf(chaves[i])>=0){
+      // Substituir a referência curta pelo nome completo mantendo detalhes do item/anexo
+      var sufixo = normaStr.replace(chaves[i],'').trim();
+      resultado = NORMAS[chaves[i]] + (sufixo ? ' — ' + sufixo.replace(/^[,—\-\s]+/,'') : '');
+      break;
+    }
+  }
+  return resultado;
+}
 const TC={DLA:'dla',DCAA:'dcaa',LAS:'las',LAU:'lau',LAC:'lac',PT:'pt'};
-const RI={DLA:0,DCAA:1,LAS:1,LAU:2,LAC:3,PT:4};
-const RP=['DLA','DCAA/LAS','LAU','LAC','Trifásico'];
+const RI={DLA:0,DCAA:1,LAS:2,LAU:3,LAC:4,PT:5};
+const RP=['DLA','DCAA','LAS','LAU','LAC','Trifásico'];
 
 // Categorias no select
 const cats=[...new Set(A.map(function(a){return a.cat}))].sort();
@@ -665,7 +692,7 @@ function cardH(a){
     +reguaH(a.tipo)
     +'<div class="cd"><strong>Porte:</strong> '+a.porte+'</div>'
     +al
-    +'<div class="cn">📄 '+a.norma+'</div>'
+    +'<div class="cn">📄 '+nomeNorma(a.norma)+'</div>'
     +'</div>';
 }
 
